@@ -1,16 +1,20 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import RootLayout from './RootLayout';
+import SideBar from '../components/Sidebar';
+import NavDashboard from '../components/NavbarDashboard';
+import { Outlet } from 'react-router-dom';
 
-export default function DashboardLayout({ children }) {
+export default function DashboardLayout() {
   return (
     <RootLayout>
-      {/* <DashboardNavBar /> */}
-      {children}
+      <div className='bg-[#C7EBEC] lg:hidden'>
+        <NavDashboard />
+        <Outlet />
+      </div>
+      <div className='hidden lg:flex lg:bg-[#C7EBEC] '>
+        <SideBar />
+        <Outlet />
+      </div>
     </RootLayout>
   );
 }
-
-DashboardLayout.propTypes = {
-  children: PropTypes.node.isRequired,
-};
