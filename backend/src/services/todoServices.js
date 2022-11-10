@@ -6,12 +6,13 @@ async function createTodo(id, title) {
 
   const todoId = generateUID();
   const createAt = new Date().toISOString();
+  const isCompleted = false;
 
   if (todo) {
     todo.todoList.push({
       todoId,
       title,
-      isCompleted: false,
+      isCompleted,
       createAt,
     });
     await todo.save();
@@ -24,7 +25,7 @@ async function createTodo(id, title) {
       {
         todoId,
         title,
-        isCompleted: false,
+        isCompleted,
         createAt,
       },
     ],
@@ -38,7 +39,7 @@ async function getAllTodoListById(id) {
   return todo.todoList;
 }
 
-async function updateTodoById(id, todoId, changes) {
+async function updateTodoById(id, todoId, ...changes) {
   const todo = await Todo.findOne({ id });
   const todoIndex = todo.todoList.findIndex((item) => item.todoId === todoId);
 
@@ -48,7 +49,7 @@ async function updateTodoById(id, todoId, changes) {
   }
 }
 
-async function deleteTodo(id, todoId) {
+async function deleteTodoById(id, todoId) {
   const todo = await Todo.findOne({ id });
   const targetIndex = todo.todoList.findIndex((t) => t.todoId === todoId);
   todo.todoList.splice(targetIndex, 1);
@@ -59,5 +60,5 @@ module.exports = {
   createTodo,
   getAllTodoListById,
   updateTodoById,
-  deleteTodo,
+  deleteTodoById,
 };

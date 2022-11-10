@@ -47,7 +47,7 @@ async function updateUserInformation(id, name) {
 async function updateUserPassword(id, oldPassword, newPassword) {
   const user = await User.findOne({ id });
   const isPasswordMatch = comparePassword(oldPassword, user.password);
-  if (!isPasswordMatch) throw new Error('password lama tidak sesuai');
+  if (!isPasswordMatch) throw new Error('old password is not match');
   user.password = encryptPassword(newPassword);
   await user.save();
 }

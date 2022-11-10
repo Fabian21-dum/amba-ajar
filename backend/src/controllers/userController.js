@@ -15,7 +15,7 @@ async function getUserById(req, res) {
     });
   }
 
-  return res.status(404).send({ message: 'user tidak ditemukan' });
+  return res.status(404).send({ status: 404, message: 'user not found' });
 }
 
 /**
@@ -27,12 +27,9 @@ async function updateUserAvatar(req, res) {
   const { avatarBuffer } = req.body;
   try {
     await userServices.updateUserAvatar(id, avatarBuffer);
-    return res.send({
-      message: 'avatar user berhasil diupdate',
-      status: 200,
-    });
+    return res.send({ message: 'avatar successfully updated', status: 200 });
   } catch (err) {
-    return res.status(400).send({ message: 'gagal memperbarui ', status: 400 });
+    return res.status(400).send({ message: 'failed to update user avatar', status: 400 });
   }
 }
 
@@ -47,12 +44,12 @@ async function updateUserPassword(req, res) {
   try {
     await userServices.updateUserPassword(id, oldPassword, newPassword);
     return res.send({
-      message: 'password user berhasil diupdate',
+      message: 'password successfully updated',
       status: 200,
     });
   } catch (err) {
     return res.status(400).send({
-      message: err.message || 'gagal memperbarui password ',
+      message: err.message || 'failed to update user password',
       status: 400,
     });
   }
@@ -90,16 +87,37 @@ async function updateUserInformation(req, res) {
   try {
     await userServices.updateUserInformation(id, name);
     return res.send({
-      message: 'informasi user berhasil diupdate',
+      message: 'user information successfully updated',
       status: 200,
     });
   } catch (err) {
-    return res.status(400).send({ message: 'gagal memperbarui', status: 400 });
+    return res.status(400).send({ message: 'failed to update user information', status: 400 });
   }
 }
 
+/**
+ * @param {import('express').Request} req
+ * @param {import('express').Response} res
+ */
+async function getUserActivity(req, res) {
+  const { id } = req.params;
+
+  try {
+    const activity = await userServices.getUserActivity(id);
+
+    if (!activity) throw new Error('user activity not found');
+
+    return res.send({
+      message: 'successfully retrieved user activity',
+      activity,
+    });
+  } catch (err) {
+    return res.status(400).send({ message: err.message || 'failed to retrieve user activity' });
+  }
+}
 module.exports = {
   getUserById,
+  getUserActivity,
   updateUserAvatar,
   updateUserInformation,
   updateUserPassword,
