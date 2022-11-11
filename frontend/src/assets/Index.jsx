@@ -4,5 +4,8 @@ import LIST from './icons/list.svg';
 import CALENDAR from './icons/Calendar.svg';
 import SETTING from './icons/Settings.svg';
 import HAM from './icons/Hamburger.svg';
+import TODOLIST from './icons/toLIst.svg';
+import JADWAL from './icons/jadwal.svg';
+import SELESAI from './icons/taskSelesai.svg';
 
-export { LOGO, HOME, LIST, CALENDAR, SETTING, HAM };
+export { LOGO, HOME, LIST, CALENDAR, SETTING, HAM, TODOLIST, JADWAL, SELESAI };
