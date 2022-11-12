@@ -10,7 +10,7 @@ async function getUserById(req, res) {
 
   if (user) {
     return res.send({
-      message: 'berhasil mendapatkan informasi user',
+      message: 'successfully retrieved user information',
       user,
     });
   }
@@ -66,12 +66,12 @@ async function updateUserActivity(req, res) {
   try {
     await userServices.updateUserActivityTimestamps(id, timestamp);
     return res.send({
-      message: 'activity timestamp user berhasil diupdate',
+      message: 'activity timestamp successfully updated',
       status: 200,
     });
   } catch (err) {
     return res.status(400).send({
-      message: 'gagal memperbarui activity timestamp ',
+      message: 'failed to update activity timestamp',
       status: 400,
     });
   }

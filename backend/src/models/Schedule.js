@@ -2,10 +2,15 @@ const { model, Schema, SchemaTypes } = require('mongoose');
 
 const scheduleSchema = new Schema({
   id: SchemaTypes.String,
-  timestamp: SchemaTypes.Number,
-  class: SchemaTypes.String,
-  teacher: SchemaTypes.String,
-  duration: SchemaTypes.Number,
+  scheduleList: [
+    {
+      scheduleId: SchemaTypes.String,
+      course: SchemaTypes.String,
+      mentor: SchemaTypes.String,
+      date: SchemaTypes.String,
+      duration: SchemaTypes.String,
+    },
+  ],
 });
 
 const Schedule = model('Schedule', scheduleSchema);

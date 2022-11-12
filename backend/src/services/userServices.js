@@ -7,8 +7,8 @@ async function createUser(name, email, password) {
 
   const hashedPassword = encryptPassword(password);
   const id = generateUID();
-  const todoId = generateUID('todo');
-  const scheduleId = generateUID('schedule');
+  const todoId = generateUID();
+  const scheduleId = generateUID();
   const avatar = 'https://i.imgur.com/8Q9QY7C.png';
 
   const user = new User({

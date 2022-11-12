@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 const { check, validationResult } = require('express-validator');
 
 /**
@@ -5,7 +6,6 @@ const { check, validationResult } = require('express-validator');
  * @param {import('express').Response} res
  * @param {import('express').NextFunction} next
  */
-// eslint-disable-next-line consistent-return
 async function register(req, res, next) {
   await check('name', 'Name is required').notEmpty().run(req);
   await check('email', 'Email is required').isEmail().run(req);
@@ -23,7 +23,6 @@ async function register(req, res, next) {
  * @param {import('express').Response} res
  * @param {import('express').NextFunction} next
  */
-// eslint-disable-next-line consistent-return
 async function login(req, res, next) {
   await check('email', 'Email is required').isEmail().run(req);
   await check('password', 'password is required').isLength({ min: 6 }).run(req);
