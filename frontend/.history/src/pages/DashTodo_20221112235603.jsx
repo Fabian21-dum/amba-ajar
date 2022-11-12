@@ -14,7 +14,7 @@ export default function DashTodo(){
         <div className="relative bg-white border-solid border w-[1167px] h-fit top-[0px] drop-shadow-lg border-[rgba(232,231,231,1)] rounded-[10px]">
           <div className="flex-container-1">
             <span className="relative left-[45px] top-[20px] font-bold text-4xl">TO DO LIST</span>
-            <Link to='/dashboard/AddTodo'>
+            <Link to='/addtodo'>
             <button className="absolute w-[143.48px] h-[45px] right-[50px] top-[20px] drop-shadow-lg bg-gradient-to-r from-[rgba(25,201,229,1)] to-[rgba(7,154,187,1)] rounded-[10px] text-white text-center hover:bg-gradient-to-br">Tambah Data</button>
             </Link>
           </div>

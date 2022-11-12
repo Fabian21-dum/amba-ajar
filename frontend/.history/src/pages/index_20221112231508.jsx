@@ -5,6 +5,5 @@ import RegisterPage from './RegisterPage';
 import DashboardPage from './Dashboard-Page/DashboardPage';
 import DashTodo from './DashTodo';
 import AddTodo from './AddTodo';
-import EditTodo from './EditTodo';
 
-export { LoginPage, HomePage, NotFoundPage, DashboardPage, RegisterPage, DashTodo, AddTodo, EditTodo };
+export { LoginPage, HomePage, NotFoundPage, DashboardPage, RegisterPage, DashTodo, AddTodo };
