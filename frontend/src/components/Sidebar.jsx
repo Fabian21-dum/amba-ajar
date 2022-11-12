@@ -25,7 +25,7 @@ export default function SideBar() {
               <img src={CALENDAR} alt='logo CALENDAR' />
             </div>
           </Link>
-          <Link to={'pengaturan'}>
+          <Link to={'Settings'}>
             <div className='pointer flex h-14 w-14 justify-center rounded-xl bg-cyan-100 p-2'>
               <img src={SETTING} alt='logo SETTING' />
             </div>
