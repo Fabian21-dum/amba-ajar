@@ -83,9 +83,9 @@ async function updateUserActivity(req, res) {
  */
 async function updateUserInformation(req, res) {
   const { id } = req.params;
-  const { name } = req.body;
+  const { changes } = req.body;
   try {
-    await userServices.updateUserInformation(id, name);
+    await userServices.updateUserInformation(id, changes);
     return res.send({
       message: 'user information successfully updated',
       status: 200,
@@ -103,21 +103,37 @@ async function getUserActivity(req, res) {
   const { id } = req.params;
 
   try {
-    const activity = await userServices.getUserActivity(id);
+    const activities = await userServices.getUserActivityTimestamps(id);
 
-    if (!activity) throw new Error('user activity not found');
+    if (!activities) throw new Error('user activities not found');
 
     return res.send({
-      message: 'successfully retrieved user activity',
-      activity,
+      message: 'successfully retrieved user activities',
+      activities,
     });
   } catch (err) {
-    return res.status(400).send({ message: err.message || 'failed to retrieve user activity' });
+    return res.status(400).send({ message: err.message || 'failed to retrieve user activities' });
   }
 }
+
+/**
+ * @param {import('express').Request} req
+ * @param {import('express').Response} res
+ */
+async function getUserStats(req, res) {
+  const { id } = req.params;
+  try {
+    const stats = await userServices.getUserStatsCount(id);
+    return res.send({ message: 'successfully retrieved user stats', stats });
+  } catch (err) {
+    return res.status(400).send({ message: 'failed to retrieve user stats' });
+  }
+}
+
 module.exports = {
   getUserById,
   getUserActivity,
+  getUserStats,
   updateUserAvatar,
   updateUserInformation,
   updateUserPassword,

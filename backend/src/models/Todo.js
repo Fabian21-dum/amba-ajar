@@ -7,7 +7,7 @@ const todoSchema = new Schema({
       todoId: SchemaTypes.String,
       title: SchemaTypes.String,
       isCompleted: SchemaTypes.Boolean,
-      createAt: SchemaTypes.String,
+      createAt: SchemaTypes.Date,
     },
   ],
 });

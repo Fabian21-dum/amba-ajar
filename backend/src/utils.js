@@ -11,7 +11,7 @@ const generateTodoObject = (todoId, title) => ({
   todoId,
   title,
   isCompleted: false,
-  createdAt: new Date().toISOString(),
+  createAt: Date.now(),
 });
 
 const generateScheduleObject = (scheduleId, course, mentor, date, duration) => ({
