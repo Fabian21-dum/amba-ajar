@@ -1,17 +1,23 @@
 const { Todo } = require('../models');
 const { generateUID, generateTodoObject } = require('../utils');
+const { updateUserInformation, getUserId } = require('./userServices');
 
 async function createTodo(id, title) {
   const todo = await Todo.findOne({ id });
   const todoId = generateUID('todo');
   const todoObject = generateTodoObject(todoId, title);
+  const userId = await getUserId('todoId', id);
+
   if (todo) {
     todo.todoList.push(todoObject);
+    const todoListLength = todo.todoList.length;
+    await updateUserInformation(userId, { todoCount: todoListLength });
     await todo.save();
     return todoId;
   }
 
   const newTodo = await Todo.create({ id, todoList: [todoObject] });
+  await updateUserInformation(userId, { todoCount: 1 });
   await newTodo.save();
   return todoId;
 }
@@ -35,7 +41,13 @@ async function updateTodoById(id, todoId, changes) {
 
 async function deleteTodoById(id, todoId) {
   const todo = await Todo.findOne({ id });
-  await todo.deleteOne({ todoList: { todoId } });
+  const newTodoList = todo.todoList.filter((t) => t.todoId !== todoId);
+
+  todo.todoList = newTodoList;
+  const todoListLength = todo.todoList.length;
+  const userId = await getUserId('todoId', id);
+
+  await updateUserInformation(userId, { todoCount: todoListLength });
   await todo.save();
 }
 

@@ -42,8 +42,8 @@ async function updateSchedule(id, scheduleId, changes) {
 
 async function deleteSchedule(id, scheduleId) {
   const schedule = await Schedule.findOne({ id });
-  const targetIndex = schedule.scheduleList.findIndex((s) => s.scheduleId === scheduleId);
-  schedule.scheduleList.splice(targetIndex, 1);
+  const newScheduleList = schedule.scheduleList.filter((s) => s.scheduleId !== scheduleId);
+  schedule.scheduleList = newScheduleList;
   await schedule.save();
 }
 

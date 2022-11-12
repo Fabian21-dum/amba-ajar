@@ -9,7 +9,8 @@ async function createUser(name, email, password) {
   const id = generateUID();
   const todoId = generateUID();
   const scheduleId = generateUID();
-  const avatar = 'https://i.imgur.com/8Q9QY7C.png';
+  // default avatar profile
+  const avatar = 'https://i.imgur.com/WxNkK7J.png';
 
   const user = new User({
     id,
@@ -19,6 +20,9 @@ async function createUser(name, email, password) {
     scheduleId,
     profile: { name, avatar },
     activityTimestamps: [0, 0, 0, 0, 0, 0, 0],
+    activityCount: 0,
+    scheduleCount: 0,
+    todoCount: 0,
   });
   await user.save();
   return user;
@@ -28,20 +32,24 @@ async function getUserInformation(id) {
   const user = await User.findOne({ id });
   const { name, avatar } = user.profile;
   const { email } = user;
-  console.log(user);
   return { email, name, avatar };
 }
 
 async function updateUserAvatar(id, avatarBuffer) {
-  const user = await User.findOne({ id });
-  user.profile = { ...user.profile, avatar: avatarBuffer };
-  await user.save();
+  await User.updateOne({ id }, { $set: { 'profile.avatar': avatarBuffer } });
 }
 
-async function updateUserInformation(id, name) {
-  const user = await User.findOne({ id });
-  user.profile = { ...user.profile, name };
-  await user.save();
+async function updateUserInformation(id, changes) {
+  const { name } = changes;
+  console.log(changes);
+  await User.updateOne(
+    { id },
+    {
+      $set: {
+        'profile.name': name,
+      },
+    },
+  );
 }
 
 async function updateUserPassword(id, oldPassword, newPassword) {
@@ -54,8 +62,7 @@ async function updateUserPassword(id, oldPassword, newPassword) {
 
 async function getUserActivityTimestamps(id) {
   const user = await User.findOne({ id });
-  const currentDay = new Date().getDay();
-  return user.activityTimestamps[currentDay];
+  return user.activityTimestamps;
 }
 
 async function updateUserActivityTimestamps(id, timestamp) {
