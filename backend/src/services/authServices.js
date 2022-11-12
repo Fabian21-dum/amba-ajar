@@ -2,16 +2,7 @@ const jwt = require('jsonwebtoken');
 const { User } = require('../models');
 const { comparePassword } = require('../utils');
 
-function generateToken(user) {
-  // eslint-disable-next-line object-curly-newline
-  const { id, email, todoId, scheduleId } = user;
-  const payload = {
-    id,
-    email,
-    todoId,
-    scheduleId,
-  };
-
+function generateToken(payload) {
   const options = {
     expiresIn: 1000 * 60 * 60 * 24 * 7,
   };
@@ -21,6 +12,7 @@ function generateToken(user) {
 
 async function authenticate(email, password) {
   const user = await User.findOne({ email });
+  if (!user) return false;
 
   const { id, todoId, scheduleId } = user;
   const isPasswordMatch = comparePassword(password, user.password);

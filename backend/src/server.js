@@ -3,7 +3,6 @@ const cors = require('cors');
 const compression = require('compression');
 const { bootstrap } = require('./models');
 const routes = require('./routes');
-// const authMiddleware = require('./middlewares/authMiddleware');
 
 function createServer() {
   const app = express();
@@ -14,7 +13,7 @@ function createServer() {
   app.use(compression());
   app.use(cors());
   app.use('/api', routes);
-  app.all('*', (req, res) => res.status(404).send({ statusCode: 404, message: `${req.path} tidak ditemukan` }));
+  app.all('*', (req, res) => res.status(404).send({ statusCode: 404, message: `${req.path} not found` }));
 
   return app;
 }

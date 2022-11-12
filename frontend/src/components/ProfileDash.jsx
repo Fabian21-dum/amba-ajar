@@ -1,5 +1,5 @@
 import React from 'react';
-import { TODOLIST, JADWAL, SELESAI } from '../assets/Index';
+import { TODOLIST, JADWAL, SELESAI } from '../assets';
 
 function Icon() {
   return (
