@@ -10,6 +10,9 @@ const userSchema = new Schema({
   },
   todoId: SchemaTypes.String,
   scheduleId: SchemaTypes.String,
+  pomodoroCompletedCount: SchemaTypes.Number,
+  todoCompleted: SchemaTypes.Number,
+  scheduleCompleted: SchemaTypes.Number,
   activityTimestamps: [SchemaTypes.Number],
 });
 

@@ -7,8 +7,8 @@ async function createUser(name, email, password) {
 
   const hashedPassword = encryptPassword(password);
   const id = generateUID();
-  const todoId = generateUID('todo');
-  const scheduleId = generateUID('schedule');
+  const todoId = generateUID();
+  const scheduleId = generateUID();
   const avatar = 'https://i.imgur.com/8Q9QY7C.png';
 
   const user = new User({
@@ -47,7 +47,7 @@ async function updateUserInformation(id, name) {
 async function updateUserPassword(id, oldPassword, newPassword) {
   const user = await User.findOne({ id });
   const isPasswordMatch = comparePassword(oldPassword, user.password);
-  if (!isPasswordMatch) throw new Error('password lama tidak sesuai');
+  if (!isPasswordMatch) throw new Error('old password is not match');
   user.password = encryptPassword(newPassword);
   await user.save();
 }

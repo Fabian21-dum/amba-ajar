@@ -1,57 +1,41 @@
 const { Todo } = require('../models');
-const { generateUID } = require('../utils');
+const { generateUID, generateTodoObject } = require('../utils');
 
 async function createTodo(id, title) {
   const todo = await Todo.findOne({ id });
-
-  const todoId = generateUID();
-  const createAt = new Date().toISOString();
-
+  const todoId = generateUID('todo');
+  const todoObject = generateTodoObject(todoId, title);
   if (todo) {
-    todo.todoList.push({
-      todoId,
-      title,
-      isCompleted: false,
-      createAt,
-    });
+    todo.todoList.push(todoObject);
     await todo.save();
     return todoId;
   }
 
-  await Todo.create({
-    id,
-    todoList: [
-      {
-        todoId,
-        title,
-        isCompleted: false,
-        createAt,
-      },
-    ],
-  });
-
+  const newTodo = await Todo.create({ id, todoList: [todoObject] });
+  await newTodo.save();
   return todoId;
 }
 
 async function getAllTodoListById(id) {
   const todo = await Todo.findOne({ id });
+  if (!todo) return [];
   return todo.todoList;
 }
 
 async function updateTodoById(id, todoId, changes) {
-  const todo = await Todo.findOne({ id });
-  const todoIndex = todo.todoList.findIndex((item) => item.todoId === todoId);
-
-  if (todoIndex) {
-    todo.todoList[todoIndex] = { ...todo[todoIndex], ...changes };
-    await todo.save();
-  }
+  if (!changes) throw new Error('no changes provided');
+  const { title, isCompleted } = changes;
+  await Todo.updateOne(
+    { id, 'todoList.todoId': todoId },
+    {
+      $set: { 'todoList.$.title': title, 'todoList.$.isCompleted': isCompleted },
+    },
+  );
 }
 
-async function deleteTodo(id, todoId) {
+async function deleteTodoById(id, todoId) {
   const todo = await Todo.findOne({ id });
-  const targetIndex = todo.todoList.findIndex((t) => t.todoId === todoId);
-  todo.todoList.splice(targetIndex, 1);
+  await todo.deleteOne({ todoList: { todoId } });
   await todo.save();
 }
 
@@ -59,5 +43,5 @@ module.exports = {
   createTodo,
   getAllTodoListById,
   updateTodoById,
-  deleteTodo,
+  deleteTodoById,
 };
