@@ -1,18 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-
-import {
-  HomePage,
-  NotFoundPage,
-  LoginPage,
-  RegisterPage,
-  DashboardPage,
-  DashTodo,
-  AddTodo,
-  EditTodo,
-  DashboardSettings,
-} from './pages/index';
-
+import { HomePage, NotFoundPage, LoginPage, RegisterPage, DashboardPage } from './pages';
 import DashboardLayout from './layouts/DashboardLayout';
 
 function App() {
