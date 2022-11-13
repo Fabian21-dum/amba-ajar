@@ -163,6 +163,7 @@
     <td>scheduleId</td>
     <td>message, status</td>
 </table>
+
 ### JWT Payload example
 
 ```json
