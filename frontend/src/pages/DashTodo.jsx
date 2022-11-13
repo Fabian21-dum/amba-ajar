@@ -9,8 +9,8 @@ export default function DashTodo(){
     return(
    
     
-      <div className="flex pt-8 pl-16 pb-5 ">
-
+        <div className="flex w-full flex-col gap-4 p-4">
+        <div className='flex h-2/3 w-full flex-row justify-center gap-4'>
         <div className="relative bg-white border-solid border w-[1167px] h-fit top-[0px] drop-shadow-lg border-[rgba(232,231,231,1)] rounded-[10px]">
           <div className="flex-container-1">
             <span className="relative left-[45px] top-[20px] font-bold text-4xl">TO DO LIST</span>
@@ -63,7 +63,9 @@ export default function DashTodo(){
                     <td className="p-2 border-r">20 September 2022</td>
                     <td className="p-2 border-r">Pelajari Vim</td>
                     <td>
+                        <Link to='/dashboard/EditTodo'>
                         <button href="#" className=" mr-2 w-[69px] h-[29px] bg-gradient-to-br from-[rgba(51,121,246,1)] to-[rgba(26,90,227,1)] rounded-[10px] text-white">Edit</button>
+                        </Link>
                         <button href="#" className=" w-[69px] h-[29px] bg-gradient-to-br from-[rgba(247,116,116,1)] to-[rgba(230,51,51,1)] rounded-[10px] text-white">Hapus</button>
                     </td>
                 </tr>
@@ -315,7 +317,7 @@ export default function DashTodo(){
         </table>
     </div>
     </div>
-    
+    </div>
     </div> 
     );
 }

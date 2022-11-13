@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { HomePage, NotFoundPage, LoginPage, RegisterPage, DashboardPage, DashTodo, AddTodo, EditTodo } from './pages/index';
+import { HomePage, NotFoundPage, LoginPage, RegisterPage, DashboardPage, DashTodo, AddTodo, EditTodo, DashJad, AddJad, EditJad } from './pages/index';
 import DashboardLayout from './layouts/DashboardLayout';
 
 
@@ -23,6 +23,10 @@ function App() {
           <Route path='Todo' element={<DashTodo />} />
           <Route path='AddTodo' element={<AddTodo />} />
           <Route path='EditTodo' element={<EditTodo />} />
+          <Route path='DashJad' element={<DashJad />} />
+          <Route path='AddJad' element={<AddJad />} />
+          <Route path='EditJad' element={<EditJad />} />
+
 
         </Route>
         <Route path='*' element={<NotFoundPage />} />
