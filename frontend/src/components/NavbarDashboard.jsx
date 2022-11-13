@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { LOGO, HAM } from '../assets/index';
+import { LOGO, HAM } from '../assets';
 import { Link } from 'react-router-dom';
 
 export default function NavDashboard() {
