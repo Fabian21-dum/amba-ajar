@@ -1,111 +1,40 @@
-import React from 'react';
-import { useState, useEffect, useRef } from 'react';
+import React, { useContext } from 'react';
 import useSound from 'use-sound';
 import { mySound } from '../assets/Index';
-
-const STATUS = {
-  STARTED: 'Started',
-  STOPPED: 'Stopped',
-};
+import { GlobalContext } from '../contexts/GlobalContext';
 
 export default function Pomodoro() {
-  const [timeSession, setTimeSession] = useState(25);
-  const [timeBreak, setTimeBreak] = useState(5);
+  const { state, funct } = useContext(GlobalContext);
+  const { timeSession, timeBreak, secondsRemaining, setSecondsRemaining, status, setStatus, start, setStart, title } =
+    state;
 
-  const [secondsRemaining, setSecondsRemaining] = useState(timeSession * 60);
-  const [status, setStatus] = useState(STATUS.STOPPED);
-  const [start, setStart] = useState(false);
+  const { Increment, Decrement } = funct;
 
   const [playSound, { stop }] = useSound(mySound);
 
-  const [title, setTitle] = useState('Session');
-
-  function Increment(event) {
-    let id = event.target.id;
-    if (id === 'Session') {
-      if (timeSession !== 25) {
-        setTimeSession(timeSession + 5);
-        setSecondsRemaining(timeSession * 60);
-      }
-    } else {
-      if (timeBreak !== 15) {
-        setTimeBreak(timeBreak + 5);
-        setSecondsRemaining(timeSession * 60);
-      }
-    }
-  }
-  function Decrement(event) {
-    let id = event.target.id;
-    if (id === 'Session') {
-      if (timeSession !== 5) {
-        setTimeSession(timeSession - 5);
-      }
-    } else {
-      if (timeBreak !== 5) {
-        setTimeBreak(timeBreak - 5);
-      }
-    }
-  }
-
   const handleStart = () => {
-    setStatus(STATUS.STARTED);
+    setStatus('Started');
     setSecondsRemaining(timeSession * 60);
     setStart(!start);
   };
   const handleLanjut = () => {
-    setStatus(STATUS.STARTED);
+    setStatus('Started');
   };
   const handleStop = () => {
-    setStatus(STATUS.STOPPED);
+    setStatus('Stopped');
   };
   const handleReset = () => {
-    setStatus(STATUS.STOPPED);
+    setStatus('Stopped');
     setSecondsRemaining(timeSession * 60);
     setStart(!start);
     stop();
+    localStorage.removeItem('Pomodoro');
   };
-  useInterval(
-    () => {
-      if (secondsRemaining > 0) {
-        setSecondsRemaining(secondsRemaining - 1);
-      } else {
-        // setStatus(STATUS.STOPPED);
-        if (title === 'Session') {
-          setSecondsRemaining(timeBreak * 60);
-          setTitle('Break');
-        } else {
-          setSecondsRemaining(timeSession * 60);
-          setTitle('Session');
-        }
-      }
-    },
-    status === STATUS.STARTED ? 1000 : null
-    // passing null stops the interval
-  );
+
   const secondsToDisplay = secondsRemaining % 60;
   const minutesRemaining = (secondsRemaining - secondsToDisplay) / 60;
   const minutesToDisplay = minutesRemaining % 60;
   //   const hoursToDisplay = (minutesRemaining - minutesToDisplay) / 60;
-
-  function useInterval(callback, delay) {
-    const savedCallback = useRef();
-
-    // Remember the latest callback.
-    useEffect(() => {
-      savedCallback.current = callback;
-    }, [callback]);
-
-    // Set up the interval.
-    useEffect(() => {
-      function tick() {
-        savedCallback.current();
-      }
-      if (delay !== null) {
-        let id = setInterval(tick, delay);
-        return () => clearInterval(id);
-      }
-    }, [delay]);
-  }
 
   const twoDigits = (num) => String(num).padStart(2, '0');
 

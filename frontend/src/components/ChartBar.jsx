@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useEffect } from 'react';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
+import { GlobalContext } from '../contexts/GlobalContext';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 export default function ChartBar() {
+  const { state } = useContext(GlobalContext);
+  const { barData } = state;
+
   const [dataChart, setDataChart] = useState({
     labels: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'minggu'],
     datasets: [
       {
         label: 'data 1',
-        data: [0, 0, 0, 0, 0, 0, 0],
+        data: barData,
         backgroundColor: ['rgba(31, 208, 236, 1)'],
       },
     ],
@@ -27,7 +31,7 @@ export default function ChartBar() {
         },
       ],
     });
-  }, []);
+  }, [barData]);
   return (
     <div>
       <Bar
