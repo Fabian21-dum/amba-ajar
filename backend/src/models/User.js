@@ -10,7 +10,7 @@ const userSchema = new Schema({
   },
   todoId: SchemaTypes.String,
   scheduleId: SchemaTypes.String,
-  todoCount: SchemaTypes.Number,
+  activityTimestamps: [SchemaTypes.Number],
 });
 
 const User = model('User', userSchema);
