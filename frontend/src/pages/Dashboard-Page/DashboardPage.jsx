@@ -1,5 +1,14 @@
 import React from 'react';
-import { Quote, Jam, Kalender, ChartBar, ToDoListDash, ScheduleDash, ProfileDash } from '../../components/index';
+import {
+  Quote,
+  Jam,
+  Kalender,
+  ChartBar,
+  ToDoListDash,
+  ScheduleDash,
+  ProfileDash,
+  Pomodoro,
+} from '../../components/index';
 
 export default function DashboardPage() {
   return (

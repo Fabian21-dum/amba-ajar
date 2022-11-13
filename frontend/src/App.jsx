@@ -13,11 +13,15 @@ function App() {
         {/* </Route> */}
         <Route path='/login' element={<LoginPage />} />
         <Route path='/register' element={<RegisterPage />} />
+
         {/* <Route path="/register" element={<RegisterPage />} /> */}
         <Route path='/dashboard' element={<DashboardLayout />}>
           <Route path='/dashboard' element={<DashboardPage />} />
-          <Route path='Settings' element={<h1>hallo ini Settings</h1>} />
+          <Route path='Settings' element={<DashboardSettings />} />
           <Route path='Create' element={<h1>hallo ini Create</h1>} />
+          <Route path='Todo' element={<DashTodo />} />
+          <Route path='AddTodo' element={<AddTodo />} />
+          <Route path='EditTodo' element={<EditTodo />} />
         </Route>
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
