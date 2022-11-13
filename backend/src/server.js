@@ -20,13 +20,14 @@ function createServer() {
 
 async function startServer(PORT) {
   const app = createServer();
+  const hostname = process.env.NODE_ENV !== 'prod' ? 'localhost' : '0.0.0.0';
 
   try {
     // connect to the database
     await bootstrap(process.env.MONGO_URI);
     console.log('+ Connected to the database');
 
-    app.listen(PORT, () => {
+    app.listen(PORT, hostname, () => {
       console.log(`+ Server listening on port ${PORT}`);
     });
   } catch (err) {

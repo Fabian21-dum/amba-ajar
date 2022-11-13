@@ -9,11 +9,11 @@ async function createSchedule(req, res) {
   // eslint-disable-next-line object-curly-newline
   const { course, mentor, date, duration } = req.body;
   try {
-    const schedule = await scheduleServices.createSchedule(id, course, mentor, date, duration);
+    const createdScheduleId = await scheduleServices.createSchedule(id, course, mentor, date, duration);
     return res.status(201).send({
       status: 201,
       message: 'successfully created schedule',
-      schedule,
+      scheduleId: createdScheduleId,
     });
   } catch (err) {
     return res.status(400).send({ message: 'failed to create schedule', status: 400 });
