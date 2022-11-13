@@ -15,7 +15,7 @@ export default function RegisterPage() {
               <h3 className='text-2xl font-extrabold'>Buat Akun Baru</h3>
             </div>
             <div className='flex items-center justify-start '>
-              <img src={registerLogo} alt='login' className='mr-auto ml-auto h-48 md:h-80' />
+              <img src={registerLogo} alt='login' className='mr-auto ml-auto h-48 md:h-80' width='100%' />
             </div>
             <div className='mx-auto flex flex-col items-center justify-center'>
               <div className='mb-4 hidden text-center md:block'>

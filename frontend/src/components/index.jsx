@@ -11,6 +11,7 @@ import SideBar from './Sidebar';
 import ToDoListDash from './ToDoListDash';
 import ScheduleDash from './ScheduleDash';
 import ProfileDash from './ProfileDash';
+import Pomodoro from './Pomodoro';
 
 export {
   Button,
@@ -26,4 +27,5 @@ export {
   ToDoListDash,
   ScheduleDash,
   ProfileDash,
+  Pomodoro,
 };

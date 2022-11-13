@@ -28,7 +28,7 @@ export default function ProfileDash() {
           <h3 className='text-2xl font-bold'>PROFILE</h3>
           <button
             type='button'
-            className='mr-2 rounded-lg bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 px-2.5 py-2 text-center text-sm font-medium text-white shadow-lg shadow-cyan-500/50 hover:bg-gradient-to-br focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:shadow-lg dark:shadow-cyan-800/80 dark:focus:ring-cyan-800'
+            className='mr-2 rounded-lg bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 px-2.5 py-2 text-center text-sm font-medium text-white shadow-md shadow-cyan-500/50 hover:bg-gradient-to-br focus:outline-none focus:ring-4 focus:ring-cyan-300'
           >
             Edit
           </button>
