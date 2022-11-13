@@ -5,7 +5,7 @@ import { LOGO, HOME, LIST, CALENDAR, SETTING } from '../assets/index.jsx';
 export default function SideBar() {
   return (
     <>
-      <div className='flex h-screen w-[10%] flex-col items-center gap-4 bg-white py-7 shadow-lg'>
+      <div className='fixed h-screen w-[10%] flex-col items-center gap-4 bg-white py-7 shadow-lg'>
         <div>
           <img src={LOGO} alt='ini stmik' />
         </div>
@@ -15,12 +15,12 @@ export default function SideBar() {
               <img src={HOME} alt='logo Home' />
             </div>
           </Link>
-          <Link to={'/dashboard/Todo'}>
+          <Link to={'to-do-list'}>
             <div className='pointer flex h-14 w-14 justify-center rounded-xl bg-cyan-100 p-2'>
               <img src={LIST} alt='logo LIST' />
             </div>
           </Link>
-          <Link to={'/dashboard/DashJad'}>
+          <Link to={'jadwal'}>
             <div className='pointer flex h-14 w-14 justify-center rounded-xl bg-cyan-100 p-2'>
               <img src={CALENDAR} alt='logo CALENDAR' />
             </div>

@@ -15,12 +15,12 @@ export default function SideBar() {
               <img src={HOME} alt='logo Home' />
             </div>
           </Link>
-          <Link to={'/dashboard/Todo'}>
+          <Link to={'to-do-list'}>
             <div className='pointer flex h-14 w-14 justify-center rounded-xl bg-cyan-100 p-2'>
               <img src={LIST} alt='logo LIST' />
             </div>
           </Link>
-          <Link to={'/dashboard/DashJad'}>
+          <Link to={'jadwal'}>
             <div className='pointer flex h-14 w-14 justify-center rounded-xl bg-cyan-100 p-2'>
               <img src={CALENDAR} alt='logo CALENDAR' />
             </div>
