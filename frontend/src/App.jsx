@@ -1,8 +1,19 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { HomePage, NotFoundPage, LoginPage, RegisterPage, DashboardPage, DashTodo, AddTodo, EditTodo } from './pages/index';
-import DashboardLayout from './layouts/DashboardLayout';
 
+import {
+  HomePage,
+  NotFoundPage,
+  LoginPage,
+  RegisterPage,
+  DashboardPage,
+  DashTodo,
+  AddTodo,
+  EditTodo,
+  DashboardSettings,
+} from './pages/index';
+
+import DashboardLayout from './layouts/DashboardLayout';
 
 function App() {
   return (
@@ -18,12 +29,11 @@ function App() {
         {/* <Route path="/register" element={<RegisterPage />} /> */}
         <Route path='/dashboard' element={<DashboardLayout />}>
           <Route path='/dashboard' element={<DashboardPage />} />
-          <Route path='Settings' element={<h1>hallo ini Settings</h1>} />
+          <Route path='Settings' element={<DashboardSettings />} />
           <Route path='Create' element={<h1>hallo ini Create</h1>} />
           <Route path='Todo' element={<DashTodo />} />
           <Route path='AddTodo' element={<AddTodo />} />
           <Route path='EditTodo' element={<EditTodo />} />
-
         </Route>
         <Route path='*' element={<NotFoundPage />} />
       </Routes>

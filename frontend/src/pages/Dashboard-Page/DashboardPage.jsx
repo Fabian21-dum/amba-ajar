@@ -1,5 +1,14 @@
 import React from 'react';
-import { Quote, Jam, Kalender, ChartBar, ToDoListDash, ScheduleDash, ProfileDash } from '../../components/index';
+import {
+  Quote,
+  Jam,
+  Kalender,
+  ChartBar,
+  ToDoListDash,
+  ScheduleDash,
+  ProfileDash,
+  Pomodoro,
+} from '../../components/index';
 
 export default function DashboardPage() {
   return (
@@ -7,7 +16,9 @@ export default function DashboardPage() {
       <div className='flex h-screen w-full flex-col gap-4 p-4'>
         <div className='flex h-2/3 w-full flex-row justify-center gap-4'>
           <div className='flex h-full w-[340px] flex-col gap-4 '>
-            <div className='h-1/2 rounded-[20px] bg-white shadow-xl'></div>
+            <div className='h-1/2 rounded-[20px] bg-white p-4 shadow-xl'>
+              <Pomodoro />
+            </div>
             <div className='h-1/2 rounded-[20px] bg-white p-4 shadow-xl'>
               <p className='text-center font-bold'>AKTIVITAS</p>
               <ChartBar />
