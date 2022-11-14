@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { LOGO, HOME, LIST, CALENDAR, SETTING, Logout } from '../assets';
+import { GlobalContext } from '../contexts/GlobalContext';
 
 export default function SideBar() {
+  const { handling } = useContext(GlobalContext);
+  const { RemoveToken } = handling;
+
   return (
     <>
       <div className='flex h-screen w-[10%] flex-col items-center gap-4 bg-white py-7 shadow-lg'>
@@ -30,11 +34,11 @@ export default function SideBar() {
               <img src={SETTING} alt='logo SETTING' />
             </div>
           </Link>
-          <Link to={'Logout'}>
+          <button onClick={RemoveToken}>
             <div className='pointer flex h-14 w-14 justify-center rounded-xl bg-cyan-100 p-2'>
               <img src={Logout} alt='logo SETTING' />
             </div>
-          </Link>
+          </button>
         </div>
       </div>
     </>

@@ -1,5 +1,7 @@
 import React, { createContext, useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 const GlobalContext = createContext();
 
@@ -93,6 +95,9 @@ const GlobalProvider = ({ children }) => {
 
     setBardata([Senin, Selasa, Rabu, Kamis, Jumat, Sabtu, Minggu]);
   };
+
+  const [paramData, setParamData] = useState(null);
+  const [dataJadwal, setDataJadwal] = useState([]);
   const funct = {
     Increment,
     Decrement,
@@ -116,8 +121,15 @@ const GlobalProvider = ({ children }) => {
     console.log(inputLogin);
   };
 
+  const RemoveToken = () => {
+    let navigate = useNavigate();
+    Cookies.remove('token');
+    navigate('/Login');
+  };
+
   const handling = {
     HandlingInputLogin,
+    RemoveToken,
   };
 
   const state = {
@@ -147,6 +159,10 @@ const GlobalProvider = ({ children }) => {
     setInputLogin,
     fetchStatus,
     setFetchStatus,
+    paramData,
+    setParamData,
+    dataJadwal,
+    setDataJadwal,
   };
 
   return <GlobalContext.Provider value={{ state, funct, handling }}>{children}</GlobalContext.Provider>;
