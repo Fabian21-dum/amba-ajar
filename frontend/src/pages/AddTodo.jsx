@@ -7,30 +7,29 @@ export default function AddTodo(){
    
    
     
-      <div className="flex pt-8 pl-16 pb-5 ">
-
-        <div className="relative bg-white border-solid border w-[1167px] h-fit top-[0px] drop-shadow-lg border-[rgba(232,231,231,1)] rounded-[10px]">
-          <div className="flex-container-1">
-            <span className="relative left-[45px] top-[20px] font-bold text-4xl">Tambah Data To-Do List</span>
+      <div className="flex w-full h-screen flex-col gap-4 p-4">
+        <div className='flex h-2/3 w-full flex-row justify-center gap-4'>
+        <div className="relative bg-white border-solid border w-[1099px] h-fit top-[0px] border-[rgba(232,231,231,1)] rounded-[10px]">
+            <span className="relative left-[45px] top-[20px] font-bold text-4xl">TAMBAH DATA TO DO LIST</span>
             <Link to='/dashboard/Todo'>
-            <button className="absolute mb-3 mt-5 ml-[558px] w-[143.48px] h-[45px] drop-shadow-lg bg-gradient-to-r from-[rgba(25,201,229,1)] to-[rgba(7,154,187,1)] rounded-[10px] text-white text-center hover:bg-gradient-to-br">Kembali</button>
+            <button className="absolute w-[143.48px] h-[45px] right-[50px] top-[20px] bg-gradient-to-r from-[rgba(25,201,229,1)] to-[rgba(7,154,187,1)] rounded-[10px] text-white text-center hover:bg-gradient-to-br">Kembali</button>
             </Link>
-          </div>
-          <div className=" w-full p-2 rounded-[10px] flex">
-                <div className='ml-10 mt-10'>
-                  <span className='text-xl font-bold'>Tanggal</span>
-                  <input type="date" name="tanggal" id="tanggal" className='mr-10 mt-5 drop-shadow-lg rounded-[15px] border-solid border-2 border-black w-[1000px] h-[40px]'/>
-                  <div className='mt-5'>
-                    <span className='text-xl font-bold'>To-Do</span>
-                  </div>
-                  <input type="text" name="todo" id="todo" className='mr-10 mt-5 drop-shadow-lg rounded-[15px] border-solid border-2 border-black w-[1000px] h-[400px]'/>
-                  <button className="relative mb-3 mt-5 ml-[925px] w-[143.48px] h-[45px] drop-shadow-lg bg-gradient-to-r from-[rgba(25,201,229,1)] to-[rgba(7,154,187,1)] rounded-[10px] text-white text-center hover:bg-gradient-to-br">Tambah</button>
-
-                </div>
-                </div>
-              
+            <div className='flex mt-14'>
+            <div className='ml-12 w-full mr-3'>
+              <span className='text-xl font-bold mt-10'>Tanggal</span>
+              <input type="date" name='tanggal' id='tanggal' className='mb-5 mt-5 rounded-[15px] border-solid border-2 border-black w-full h-[40px]' />
             </div>
-        </div>
+            
+          </div>
+          <div className='ml-12 mr-3'>
+              <span className='text-xl font-bold mt-10'>To-Do</span>
+              <input type="text" name='todo' id='todo' className='mb-5 mt-5 rounded-[15px] border-solid border-2 border-black w-full h-[100px]' />
+            </div>
+            <button className="relative mt-10 mb-5 w-[143.48px] h-[45px]  sm:left-[745px] lg:left-[902px] bg-gradient-to-r from-[rgba(25,201,229,1)] to-[rgba(7,154,187,1)] rounded-[10px] text-white text-center hover:bg-gradient-to-br">Tambah</button>
+
+          </div>
+    </div>
+    </div>
         
     
    

@@ -23,7 +23,7 @@ export default function NavDashboard() {
           <img src={LOGO} alt='logo' />
         </div>
       </div>
-      <div className={tekan ? 'fixed flex w-full flex-col bg-white shadow-md' : 'hidden'}>
+      <div className={tekan ? 'flex w-full flex-col bg-white shadow-md' : 'hidden'}>
         <Link to={'/dashboard'}>
           <div className='h-fit w-full p-4 text-center font-bold hover:bg-cyan-100 hover:text-cyan-600'>
             <p>HOME</p>

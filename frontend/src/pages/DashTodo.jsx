@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export default function DashTodo() {
   return (
@@ -9,7 +10,7 @@ export default function DashTodo() {
           <div>
             <span className='relative left-[45px] top-[20px] text-4xl font-bold'>TO DO LIST</span>
             <Link to='/dashboard/AddTodo'>
-              <button className='absolute right-[50px] top-[20px] h-[45px] w-[143.48px] rounded-[10px] bg-gradient-to-r from-[rgba(25,201,229,1)] to-[rgba(7,154,187,1)] text-center text-white drop-shadow-lg hover:bg-gradient-to-br'>
+              <button className='absolute right-[50px] top-[20px] h-[45px] w-[143.48px] rounded-[10px] bg-gradient-to-r from-[rgba(25,201,229,1)] to-[rgba(7,154,187,1)] text-center text-white hover:bg-gradient-to-br'>
                 Tambah Data
               </button>
             </Link>
@@ -257,248 +258,6 @@ export default function DashTodo() {
                     </button>
                   </td>
                 </tr>
-                <tr className='bg-white-100 text-white-600 border-b text-center text-sm'>
-                  <td className='border-r p-2'>
-                    <input type='checkbox' />
-                  </td>
-                  <td className='border-r p-2'>10</td>
-                  <td className='border-r p-2'>28 Oktober 2022</td>
-                  <td className='border-r p-2'>Belajar Vb</td>
-                  <td>
-                    <button
-                      href='#'
-                      className=' mr-2 h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(51,121,246,1)] to-[rgba(26,90,227,1)] text-white'
-                    >
-                      Edit
-                    </button>
-                    <button
-                      href='#'
-                      className=' h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(247,116,116,1)] to-[rgba(230,51,51,1)] text-white'
-                    >
-                      Hapus
-                    </button>
-                  </td>
-                </tr>
-                <tr className='bg-white-100 text-white-600 border-b text-center text-sm'>
-                  <td className='border-r p-2'>
-                    <input type='checkbox' />
-                  </td>
-                  <td className='border-r p-2'>10</td>
-                  <td className='border-r p-2'>28 Oktober 2022</td>
-                  <td className='border-r p-2'>Belajar Vb</td>
-                  <td>
-                    <button
-                      href='#'
-                      className=' mr-2 h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(51,121,246,1)] to-[rgba(26,90,227,1)] text-white'
-                    >
-                      Edit
-                    </button>
-                    <button
-                      href='#'
-                      className=' h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(247,116,116,1)] to-[rgba(230,51,51,1)] text-white'
-                    >
-                      Hapus
-                    </button>
-                  </td>
-                </tr>
-                <tr className='bg-white-100 text-white-600 border-b text-center text-sm'>
-                  <td className='border-r p-2'>
-                    <input type='checkbox' />
-                  </td>
-                  <td className='border-r p-2'>10</td>
-                  <td className='border-r p-2'>28 Oktober 2022</td>
-                  <td className='border-r p-2'>Belajar Vb</td>
-                  <td>
-                    <button
-                      href='#'
-                      className=' mr-2 h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(51,121,246,1)] to-[rgba(26,90,227,1)] text-white'
-                    >
-                      Edit
-                    </button>
-                    <button
-                      href='#'
-                      className=' h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(247,116,116,1)] to-[rgba(230,51,51,1)] text-white'
-                    >
-                      Hapus
-                    </button>
-                  </td>
-                </tr>
-                <tr className='bg-white-100 text-white-600 border-b text-center text-sm'>
-                  <td className='border-r p-2'>
-                    <input type='checkbox' />
-                  </td>
-                  <td className='border-r p-2'>10</td>
-                  <td className='border-r p-2'>28 Oktober 2022</td>
-                  <td className='border-r p-2'>Belajar Vb</td>
-                  <td>
-                    <button
-                      href='#'
-                      className=' mr-2 h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(51,121,246,1)] to-[rgba(26,90,227,1)] text-white'
-                    >
-                      Edit
-                    </button>
-                    <button
-                      href='#'
-                      className=' h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(247,116,116,1)] to-[rgba(230,51,51,1)] text-white'
-                    >
-                      Hapus
-                    </button>
-                  </td>
-                </tr>
-                <tr className='bg-white-100 text-white-600 border-b text-center text-sm'>
-                  <td className='border-r p-2'>
-                    <input type='checkbox' />
-                  </td>
-                  <td className='border-r p-2'>10</td>
-                  <td className='border-r p-2'>28 Oktober 2022</td>
-                  <td className='border-r p-2'>Belajar Vb</td>
-                  <td>
-                    <button
-                      href='#'
-                      className=' mr-2 h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(51,121,246,1)] to-[rgba(26,90,227,1)] text-white'
-                    >
-                      Edit
-                    </button>
-                    <button
-                      href='#'
-                      className=' h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(247,116,116,1)] to-[rgba(230,51,51,1)] text-white'
-                    >
-                      Hapus
-                    </button>
-                  </td>
-                </tr>
-                <tr className='bg-white-100 text-white-600 border-b text-center text-sm'>
-                  <td className='border-r p-2'>
-                    <input type='checkbox' />
-                  </td>
-                  <td className='border-r p-2'>10</td>
-                  <td className='border-r p-2'>28 Oktober 2022</td>
-                  <td className='border-r p-2'>Belajar Vb</td>
-                  <td>
-                    <button
-                      href='#'
-                      className=' mr-2 h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(51,121,246,1)] to-[rgba(26,90,227,1)] text-white'
-                    >
-                      Edit
-                    </button>
-                    <button
-                      href='#'
-                      className=' h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(247,116,116,1)] to-[rgba(230,51,51,1)] text-white'
-                    >
-                      Hapus
-                    </button>
-                  </td>
-                </tr>
-                <tr className='bg-white-100 text-white-600 border-b text-center text-sm'>
-                  <td className='border-r p-2'>
-                    <input type='checkbox' />
-                  </td>
-                  <td className='border-r p-2'>10</td>
-                  <td className='border-r p-2'>28 Oktober 2022</td>
-                  <td className='border-r p-2'>Belajar Vb</td>
-                  <td>
-                    <button
-                      href='#'
-                      className=' mr-2 h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(51,121,246,1)] to-[rgba(26,90,227,1)] text-white'
-                    >
-                      Edit
-                    </button>
-                    <button
-                      href='#'
-                      className=' h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(247,116,116,1)] to-[rgba(230,51,51,1)] text-white'
-                    >
-                      Hapus
-                    </button>
-                  </td>
-                </tr>
-                <tr className='bg-white-100 text-white-600 border-b text-center text-sm'>
-                  <td className='border-r p-2'>
-                    <input type='checkbox' />
-                  </td>
-                  <td className='border-r p-2'>10</td>
-                  <td className='border-r p-2'>28 Oktober 2022</td>
-                  <td className='border-r p-2'>Belajar Vb</td>
-                  <td>
-                    <button
-                      href='#'
-                      className=' mr-2 h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(51,121,246,1)] to-[rgba(26,90,227,1)] text-white'
-                    >
-                      Edit
-                    </button>
-                    <button
-                      href='#'
-                      className=' h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(247,116,116,1)] to-[rgba(230,51,51,1)] text-white'
-                    >
-                      Hapus
-                    </button>
-                  </td>
-                </tr>
-                <tr className='bg-white-100 text-white-600 border-b text-center text-sm'>
-                  <td className='border-r p-2'>
-                    <input type='checkbox' />
-                  </td>
-                  <td className='border-r p-2'>10</td>
-                  <td className='border-r p-2'>28 Oktober 2022</td>
-                  <td className='border-r p-2'>Belajar Vb</td>
-                  <td>
-                    <button
-                      href='#'
-                      className=' mr-2 h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(51,121,246,1)] to-[rgba(26,90,227,1)] text-white'
-                    >
-                      Edit
-                    </button>
-                    <button
-                      href='#'
-                      className=' h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(247,116,116,1)] to-[rgba(230,51,51,1)] text-white'
-                    >
-                      Hapus
-                    </button>
-                  </td>
-                </tr>
-                <tr className='bg-white-100 text-white-600 border-b text-center text-sm'>
-                  <td className='border-r p-2'>
-                    <input type='checkbox' />
-                  </td>
-                  <td className='border-r p-2'>10</td>
-                  <td className='border-r p-2'>28 Oktober 2022</td>
-                  <td className='border-r p-2'>Belajar Vb</td>
-                  <td>
-                    <button
-                      href='#'
-                      className=' mr-2 h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(51,121,246,1)] to-[rgba(26,90,227,1)] text-white'
-                    >
-                      Edit
-                    </button>
-                    <button
-                      href='#'
-                      className=' h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(247,116,116,1)] to-[rgba(230,51,51,1)] text-white'
-                    >
-                      Hapus
-                    </button>
-                  </td>
-                </tr>
-                <tr className='bg-white-100 text-white-600 border-b text-center text-sm'>
-                  <td className='border-r p-2'>
-                    <input type='checkbox' />
-                  </td>
-                  <td className='border-r p-2'>10</td>
-                  <td className='border-r p-2'>28 Oktober 2022</td>
-                  <td className='border-r p-2'>Belajar Vb</td>
-                  <td>
-                    <button
-                      href='#'
-                      className=' mr-2 h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(51,121,246,1)] to-[rgba(26,90,227,1)] text-white'
-                    >
-                      Edit
-                    </button>
-                    <button
-                      href='#'
-                      className=' h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(247,116,116,1)] to-[rgba(230,51,51,1)] text-white'
-                    >
-                      Hapus
-                    </button>
-                  </td>
-                </tr>
               </tbody>
             </table>
           </div>
@@ -507,3 +266,7 @@ export default function DashTodo() {
     </div>
   );
 }
+
+DashTodo.propTypes = {
+  children: PropTypes.node.isRequired,
+};

@@ -8,5 +8,6 @@ import TODOLIST from './icons/toLIst.svg';
 import JADWAL from './icons/jadwal.svg';
 import SELESAI from './icons/taskSelesai.svg';
 import mySound from './Sound/alarm.wav';
+import Logout from './icons/logout.svg';
 
-export { LOGO, HOME, LIST, CALENDAR, SETTING, HAM, TODOLIST, JADWAL, SELESAI, mySound };
+export { LOGO, HOME, LIST, CALENDAR, SETTING, HAM, TODOLIST, JADWAL, SELESAI, mySound, Logout };
