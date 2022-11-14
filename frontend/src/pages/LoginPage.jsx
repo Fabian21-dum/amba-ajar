@@ -3,9 +3,14 @@ import RootLayout from '../layouts/RootLayout';
 import loginLogo from '../assets/image/Login.svg';
 import { Link } from 'react-router-dom';
 import Input from '../components/Input';
+import { GlobalContext } from '../contexts/GlobalContext';
+import { useContext } from 'react';
 // import { Navigate } from 'react-router-dom';
 
 export default function LoginPage() {
+  const { state, handling } = useContext(GlobalContext);
+  const { inputLogin } = state;
+  const { handlingInputLogin } = handling;
   return (
     <RootLayout>
       <div className='flex h-screen w-full items-center justify-center bg-[#ABFBFE]'>
@@ -24,8 +29,20 @@ export default function LoginPage() {
             </div>
             <div className='w-[90%] md:w-full'>
               <form>
-                <Input nama='email' type='email' placeholder='email@gmail.com' />
-                <Input nama='password' type='password' placeholder='password' />
+                <Input
+                  nama='email'
+                  type='email'
+                  placeholder='email@gmail.com'
+                  handle={handlingInputLogin}
+                  value={inputLogin.value}
+                />
+                <Input
+                  nama='password'
+                  type='password'
+                  placeholder='password'
+                  handle={handlingInputLogin}
+                  value={inputLogin.value}
+                />
                 <button
                   type='Submit'
                   className='w-full rounded-lg border border-black bg-[#BDF7F9] py-2.5  text-center text-sm font-bold text-black'

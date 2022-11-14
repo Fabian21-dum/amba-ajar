@@ -35,31 +35,6 @@ const GlobalProvider = ({ children }) => {
 
   const [hari, setHari] = useState(null);
 
-  const state = {
-    timeSession,
-    setTimeSession,
-    timeBreak,
-    setTimeBreak,
-    secondsRemaining,
-    setSecondsRemaining,
-    status,
-    setStatus,
-    start,
-    setStart,
-    title,
-    setTitle,
-    timeActivity,
-    setTimeActivity,
-    barData,
-    setBardata,
-    hari,
-    setHari,
-    dataHari,
-    setDataHari,
-    stop,
-    setStop,
-  };
-
   function Increment(event) {
     let id = event.target.id;
     if (id === 'Session') {
@@ -124,7 +99,57 @@ const GlobalProvider = ({ children }) => {
     useInterval,
     StoreActivity,
   };
-  return <GlobalContext.Provider value={{ state, funct }}>{children}</GlobalContext.Provider>;
+
+  //Handling Section
+  const [fetchStatus, setFetchStatus] = useState(true);
+  const [inputLogin, setInputLogin] = useState({
+    nama: '',
+    email: '',
+    password: '',
+  });
+
+  const HandlingInputLogin = (event) => {
+    let value = event.target.value;
+    let name = event.target.name;
+
+    setInputLogin({ ...inputLogin, [name]: value });
+    console.log(inputLogin);
+  };
+
+  const handling = {
+    HandlingInputLogin,
+  };
+
+  const state = {
+    timeSession,
+    setTimeSession,
+    timeBreak,
+    setTimeBreak,
+    secondsRemaining,
+    setSecondsRemaining,
+    status,
+    setStatus,
+    start,
+    setStart,
+    title,
+    setTitle,
+    timeActivity,
+    setTimeActivity,
+    barData,
+    setBardata,
+    hari,
+    setHari,
+    dataHari,
+    setDataHari,
+    stop,
+    setStop,
+    inputLogin,
+    setInputLogin,
+    fetchStatus,
+    setFetchStatus,
+  };
+
+  return <GlobalContext.Provider value={{ state, funct, handling }}>{children}</GlobalContext.Provider>;
 };
 
 GlobalProvider.propTypes = {

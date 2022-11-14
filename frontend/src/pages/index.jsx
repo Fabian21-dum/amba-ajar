@@ -9,4 +9,18 @@ import EditTodo from './EditTodo';
 import DashJad from './jadwal/DashJad';
 import AddJad from './jadwal/AddJad';
 import EditJad from './jadwal/EditJad';
-export { LoginPage, HomePage, NotFoundPage, DashboardPage, RegisterPage, DashTodo, AddTodo, EditTodo, DashJad, AddJad, EditJad };
+import DashboardSettings from './Dashboard-Page/DashboardSettings';
+export {
+  LoginPage,
+  HomePage,
+  NotFoundPage,
+  DashboardPage,
+  RegisterPage,
+  DashTodo,
+  AddTodo,
+  EditTodo,
+  DashJad,
+  AddJad,
+  EditJad,
+  DashboardSettings,
+};
