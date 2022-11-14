@@ -57,7 +57,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/*Benefits Section */}
       <section className='h-36 bg-cyan-300 bg-zigzag bg-center bg-repeat-x py-4'></section>
       <section className='bg-gradient-to-b from-cyan-300 py-8'>
         <div className='container'>
@@ -99,16 +98,6 @@ export default function HomePage() {
           </div>
           </div>
       </section>
-      {/*End Section */}
-      <section className='mt-52 my-14'>
-        <h1 className='my-8 text-center text-4xl font-bold '>Mulai Tracking Proses Belajarmu Sekarang</h1>
-        <div className='flex justify-center gap-x-10 lg:gap-x-12'>
-        <Link to='/login'>
-              <Button>Gabung Sekarang</Button>
-            </Link>
-        </div>
-      </section>
-
     </HomeLayout>
   );
 }

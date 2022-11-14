@@ -99,15 +99,7 @@ export default function HomePage() {
           </div>
           </div>
       </section>
-      {/*End Section */}
-      <section className='mt-52 my-14'>
-        <h1 className='my-8 text-center text-4xl font-bold '>Mulai Tracking Proses Belajarmu Sekarang</h1>
-        <div className='flex justify-center gap-x-10 lg:gap-x-12'>
-        <Link to='/login'>
-              <Button>Gabung Sekarang</Button>
-            </Link>
-        </div>
-      </section>
+
 
     </HomeLayout>
   );

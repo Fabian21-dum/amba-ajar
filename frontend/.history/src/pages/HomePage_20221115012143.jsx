@@ -57,7 +57,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/*Benefits Section */}
       <section className='h-36 bg-cyan-300 bg-zigzag bg-center bg-repeat-x py-4'></section>
       <section className='bg-gradient-to-b from-cyan-300 py-8'>
         <div className='container'>
@@ -85,13 +84,14 @@ export default function HomePage() {
           <div className='flex mt-10'>
             <img className='lg:w-auto'  src={Chart} alt='home' />
           
-          <div className='mt-3 ml-5 lg:max-w-lg'>
+          <div className='mt-5 ml-5 lg:max-w-lg'>
             <h2 className='font-semibold md:text-lg'>
             Menjadikan data statistik yang ada selama proses belajar menjadi bahan acuan untuk mengetahui sebagus apa pembeljaran yang telah dilakukan            </h2>
           </div>
             </div>
             </div> 
-          <div className='align-center relative'>
+          <div className='align-center flex'>
+            <div className='w-2/3'></div>
             <div className='w-5/3'>
               <img src={VectorImage2} alt='' />
               </div>
@@ -99,16 +99,6 @@ export default function HomePage() {
           </div>
           </div>
       </section>
-      {/*End Section */}
-      <section className='mt-52 my-14'>
-        <h1 className='my-8 text-center text-4xl font-bold '>Mulai Tracking Proses Belajarmu Sekarang</h1>
-        <div className='flex justify-center gap-x-10 lg:gap-x-12'>
-        <Link to='/login'>
-              <Button>Gabung Sekarang</Button>
-            </Link>
-        </div>
-      </section>
-
     </HomeLayout>
   );
 }
