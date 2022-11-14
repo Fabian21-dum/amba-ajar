@@ -1,25 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Input({ nama, type, placeholder }) {
+export default function Input({ name, type, placeholder, onChange }) {
   return (
     <div className='mb-6'>
-      <label htmlFor={nama} className='mb-2 block text-sm font-bold text-gray-900 dark:text-gray-300'>
-        {nama}
+      <label htmlFor={name} className='mb-2 block text-sm font-bold text-gray-900 dark:text-gray-300'>
+        {name}
       </label>
       <input
+        onChange={onChange}
         type={type}
-        id={nama}
+        name={name}
+        id={name}
         className='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-lg'
         placeholder={placeholder}
-        required=''
+        required
       />
     </div>
   );
 }
 
 Input.propTypes = {
-  nama: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
+  onChange: PropTypes.func,
 };
