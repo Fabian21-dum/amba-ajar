@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
 export default function DashTodo() {
   return (
@@ -37,7 +36,7 @@ export default function DashTodo() {
               <tbody>
                 <tr className='bg-white-100 text-white-600 border-b text-center text-sm'>
                   <td className='border-r p-2'>
-                    <input type='checkbox' />
+                    <input type='checkbox' checked />
                   </td>
                   <td className='border-r p-2'>1</td>
                   <td className='border-r p-2'>20 September 2022</td>
@@ -508,6 +507,3 @@ export default function DashTodo() {
     </div>
   );
 }
-DashTodo.propTypes = {
-  children: PropTypes.node.isRequired,
-};

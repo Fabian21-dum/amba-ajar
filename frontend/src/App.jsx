@@ -13,7 +13,8 @@ import {
   AddJad,
   EditJad,
   DashboardSettings,
-} from './pages/index';
+} from './pages';
+
 import DashboardLayout from './layouts/DashboardLayout';
 import { GlobalProvider } from './contexts/GlobalContext';
 
