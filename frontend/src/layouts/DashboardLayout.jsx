@@ -35,7 +35,6 @@ export default function DashboardLayout() {
     const localStorageTime = JSON.parse(localStorage.getItem('timeActivity'));
     const localStorageData = JSON.parse(localStorage.getItem('dataActivity'));
     const localStorageStop = JSON.parse(localStorage.getItem('dataActivity'));
-    console.log(localStorageData);
     if (localStorageSecond) {
       setSecondsRemaining(localStorageSecond);
       setStart(!start);

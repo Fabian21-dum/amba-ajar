@@ -1,38 +1,37 @@
-import React from 'react';
-import {
-  Quote,
-  Jam,
-  Kalender,
-  ChartBar,
-  ToDoListDash,
-  ScheduleDash,
-  ProfileDash,
-  Pomodoro,
-} from '../../components/index';
+
+import React, { useEffect, useState } from 'react';
+import { Quote, Jam, Kalender, ChartBar, ToDoListDash, ScheduleDash, ProfileDash, Pomodoro } from '../../components';
+import jsCookie from 'js-cookie';
+import { Navigate } from 'react-router-dom';
+import jwt from 'jwt-decode';
 import axios from 'axios';
-import { useEffect } from 'react';
-import Cookies from 'js-cookie';
-import decode from 'jwt-decode';
 
 export default function DashboardPage() {
-  useEffect(() => {
-    const user = decode(Cookies.get('token'));
-    const token = Cookies.get('token');
+  const [isAuth, setIsAuth] = useState(true);
+  const [user, setUser] = useState({});
 
-    const Profile = async () => {
+  useEffect(() => {
+    const fetchUser = async () => {
       try {
-        const data = await axios.get(`${import.meta.env.VITE_API_URL}/user/${user.id}`, {
-          headers: { Authorization: `Bearer ${token}` },
+        const token = jsCookie.get('token');
+        const user = jwt(token);
+        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/user/${user.id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         });
-        console.log(data.data);
-      } catch (error) {
-        console.log(error);
+        setUser(data.user);
+      } catch (err) {
+        setIsAuth(false);
       }
     };
-    Profile();
+    fetchUser();
   }, []);
+
+
   return (
     <>
+      {!isAuth && <Navigate to='/login' />}
       <div className='flex h-screen w-full flex-col gap-4 p-4'>
         <div className='flex h-2/3 w-full flex-row justify-center gap-4'>
           <div className='flex h-full w-1/4 flex-col gap-4 '>
@@ -54,7 +53,7 @@ export default function DashboardPage() {
           </div>
           <div className='flex h-full w-1/4 flex-col gap-4 '>
             <div className='h-1/2 rounded-xl bg-white p-3 shadow-xl'>
-              <ProfileDash />
+              <ProfileDash user={user} />
             </div>
             <div className='h-1/2 rounded-xl bg-white p-2 shadow-xl'>
               <Kalender />
