@@ -9,8 +9,28 @@ import {
   ProfileDash,
   Pomodoro,
 } from '../../components/index';
+import axios from 'axios';
+import { useEffect } from 'react';
+import Cookies from 'js-cookie';
+import decode from 'jwt-decode';
 
 export default function DashboardPage() {
+  useEffect(() => {
+    const user = decode(Cookies.get('token'));
+    const token = Cookies.get('token');
+
+    const Profile = async () => {
+      try {
+        const data = await axios.get(`${import.meta.env.VITE_API_URL}/user/${user.id}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        console.log(data.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    Profile();
+  }, []);
   return (
     <>
       <div className='flex h-screen w-full flex-col gap-4 p-4'>
