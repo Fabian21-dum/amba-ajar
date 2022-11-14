@@ -7,15 +7,15 @@ function Icon() {
     <>
       <div className='flex items-center justify-center'>
         <img src={JADWAL} alt='' className='mr-2 h-8' />
-        <p className='font-bold'>10</p>
+        <p className='font-bold'>0</p>
       </div>
       <div className='flex items-center justify-center'>
         <img src={TODOLIST} alt='' className='mr-2 h-8' />
-        <p className='font-bold'>10</p>
+        <p className='font-bold'>0</p>
       </div>
       <div className='flex items-center justify-center'>
         <img src={SELESAI} alt='' className='mr-2 h-8' />
-        <p className='font-bold'>10</p>
+        <p className='font-bold'>0</p>
       </div>
     </>
   );
@@ -30,8 +30,8 @@ export default function ProfileDash({ user }) {
     setTimeout(() => {
       const base64 = new String(encodeAvatar(user.avatar.data));
       if (!base64.startsWith('http')) setAvatar(`data:image/*;base64,${base64}`);
-    }, 4000);
-  }, [avatar]);
+    }, 5000);
+  }, [user]);
 
   return (
     <>
@@ -49,7 +49,7 @@ export default function ProfileDash({ user }) {
           <div className='h-20 w-20 overflow-hidden rounded-full bg-black'>
             <img src={avatar} alt='user avatar' />
           </div>
-          <div className='text-2xl font-semibold'>{user.name || 'name'}</div>
+          <div className='text-2xl font-semibold'>{user.name || '-'}</div>
         </div>
         <div className='flex justify-around'>
           <Icon />
