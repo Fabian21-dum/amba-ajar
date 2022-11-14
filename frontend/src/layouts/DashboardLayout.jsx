@@ -4,6 +4,8 @@ import SideBar from '../components/Sidebar';
 import NavDashboard from '../components/NavbarDashboard';
 import { Outlet } from 'react-router-dom';
 import { GlobalContext } from '../contexts/GlobalContext';
+import useSound from 'use-sound';
+import { mySound } from '../assets/Index';
 
 export default function DashboardLayout() {
   const { state, funct } = useContext(GlobalContext);
@@ -20,33 +22,37 @@ export default function DashboardLayout() {
     setStart,
     timeActivity,
     setTimeActivity,
-    barData,
-    setBardata,
+    dataHari,
+    setDataHari,
+    stop,
   } = state;
   const { useInterval, StoreActivity } = funct;
+  const [playSound] = useSound(mySound);
 
   useEffect(() => {
     const localStorageSecond = JSON.parse(localStorage.getItem('Pomodoro'));
     const localStorageTime = JSON.parse(localStorage.getItem('timeActivity'));
     const localStorageData = JSON.parse(localStorage.getItem('dataActivity'));
-    console.log(localStorageTime);
+    const localStorageStop = JSON.parse(localStorage.getItem('dataActivity'));
+    console.log(localStorageData);
     if (localStorageSecond) {
       setSecondsRemaining(localStorageSecond);
       setStart(!start);
-      setStatus('Started');
+      if (!localStorageStop) {
+        setStatus('Started');
+      }
     }
     if (localStorageTime) {
       setTimeActivity(localStorageTime);
     }
     if (localStorageData) {
-      setBardata(localStorageData);
+      setDataHari(localStorageData);
     }
-    console.log(barData);
   }, []);
 
   useInterval(() => {
     setTimeActivity(timeActivity + 1);
-    console.log(StoreActivity());
+    StoreActivity();
   }, 1000);
 
   useInterval(
@@ -63,6 +69,9 @@ export default function DashboardLayout() {
           setTitle('Session');
         }
       }
+      if (secondsRemaining === 8) {
+        playSound();
+      }
     },
     status === 'Started' ? 1000 : null
     // passing null stops the interval
@@ -73,13 +82,16 @@ export default function DashboardLayout() {
   // }, []);
 
   window.addEventListener('beforeunload', () => {
-    if (status === 'Started') {
+    if (status === 'Started' || stop === true) {
       localStorage.setItem('Pomodoro', JSON.stringify(secondsRemaining));
+      if (stop === true) {
+        localStorage.setItem('Stop', JSON.stringify(stop));
+      }
     } else {
       localStorage.removeItem('Pomodoro');
     }
     localStorage.setItem('timeActivity', JSON.stringify(timeActivity));
-    localStorage.setItem('dataActivity', JSON.stringify(barData));
+    localStorage.setItem('dataActivity', JSON.stringify(dataHari));
   });
 
   return (

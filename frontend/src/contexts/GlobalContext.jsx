@@ -8,10 +8,11 @@ const GlobalProvider = ({ children }) => {
   //     STARTED: 'Started',
   //     STOPPED: 'Stopped',
   //   };
-  const [timeSession, setTimeSession] = useState(25);
-  const [timeBreak, setTimeBreak] = useState(5);
+  const [timeSession, setTimeSession] = useState(1);
+  const [timeBreak, setTimeBreak] = useState(1);
 
   const [secondsRemaining, setSecondsRemaining] = useState(timeSession * 60);
+  const [stop, setStop] = useState(false);
 
   const [status, setStatus] = useState('Stopped');
   const [start, setStart] = useState(false);
@@ -20,7 +21,17 @@ const GlobalProvider = ({ children }) => {
 
   const [timeActivity, setTimeActivity] = useState(2);
 
-  const [barData, setBardata] = useState([0, 2, 0, 0, 0, 0, 0]);
+  const [dataHari, setDataHari] = useState({
+    Senin: 0,
+    Selasa: 0,
+    Rabu: 0,
+    Kamis: 0,
+    Jumat: 0,
+    Sabtu: 0,
+    Minggu: 0,
+  });
+
+  const [barData, setBardata] = useState([0, 0, 0, 0, 0, 0, 0]);
 
   const [hari, setHari] = useState(null);
 
@@ -43,6 +54,10 @@ const GlobalProvider = ({ children }) => {
     setBardata,
     hari,
     setHari,
+    dataHari,
+    setDataHari,
+    stop,
+    setStop,
   };
 
   function Increment(event) {
@@ -93,36 +108,15 @@ const GlobalProvider = ({ children }) => {
   }
 
   const StoreActivity = () => {
-    var data = barData;
-    console.log(data);
+    const { Senin, Selasa, Rabu, Kamis, Jumat, Sabtu, Minggu } = dataHari;
+    const name = hari;
     const time = timeActivity / 60;
-    console.log(time);
+
     const menit = Math.round(time * 10) / 10;
-    console.log(menit);
-    switch (hari) {
-      case 'Minggu':
-        data[6].push(menit);
-        break;
-      case 'Senin':
-        data[5].push(menit);
-        break;
-      case 'Selasa':
-        data[4].push(menit);
-        break;
-      case 'Rabu':
-        data[3].push(menit);
-        break;
-      case 'Kamis':
-        data[2].push(menit);
-        break;
-      case 'Jumat':
-        data[1].push(menit);
-        break;
-      case 'Sabtu':
-        data[0].push(menit);
-        break;
-    }
-    return data;
+
+    setDataHari({ ...dataHari, [name]: menit });
+
+    setBardata([Senin, Selasa, Rabu, Kamis, Jumat, Sabtu, Minggu]);
   };
   const funct = {
     Increment,

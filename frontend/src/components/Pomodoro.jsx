@@ -5,12 +5,22 @@ import { GlobalContext } from '../contexts/GlobalContext';
 
 export default function Pomodoro() {
   const { state, funct } = useContext(GlobalContext);
-  const { timeSession, timeBreak, secondsRemaining, setSecondsRemaining, status, setStatus, start, setStart, title } =
-    state;
+  const {
+    timeSession,
+    timeBreak,
+    secondsRemaining,
+    setSecondsRemaining,
+    status,
+    setStatus,
+    start,
+    setStart,
+    title,
+    setStop,
+  } = state;
 
   const { Increment, Decrement } = funct;
 
-  const [playSound, { stop }] = useSound(mySound);
+  const [{ stop }] = useSound(mySound);
 
   const handleStart = () => {
     setStatus('Started');
@@ -19,14 +29,17 @@ export default function Pomodoro() {
   };
   const handleLanjut = () => {
     setStatus('Started');
+    setStop(false);
   };
   const handleStop = () => {
     setStatus('Stopped');
+    setStop(true);
   };
   const handleReset = () => {
     setStatus('Stopped');
     setSecondsRemaining(timeSession * 60);
     setStart(!start);
+    setStop(false);
     stop();
     localStorage.removeItem('Pomodoro');
   };
@@ -37,10 +50,6 @@ export default function Pomodoro() {
   //   const hoursToDisplay = (minutesRemaining - minutesToDisplay) / 60;
 
   const twoDigits = (num) => String(num).padStart(2, '0');
-
-  if (secondsRemaining === 8) {
-    playSound();
-  }
 
   return (
     <>

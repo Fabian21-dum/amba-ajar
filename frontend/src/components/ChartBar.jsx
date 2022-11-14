@@ -25,8 +25,8 @@ export default function ChartBar() {
       labels: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'minggu'],
       datasets: [
         {
-          label: 'Jumlah Waktu',
-          data: [6, 3, 12, 2, 1, 4, 2],
+          label: 'Jumlah Waktu (Menit)',
+          data: barData,
           backgroundColor: ['rgba(31, 208, 236, 1)'],
         },
       ],
