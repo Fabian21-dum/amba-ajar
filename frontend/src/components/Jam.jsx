@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import moment from 'moment';
+import { GlobalContext } from '../contexts/GlobalContext';
 
 export default function Jam() {
+  const { state } = useContext(GlobalContext);
+  const { hari, setHari } = state;
   const [waktu, setWaktu] = useState(null);
-  const [hari, setHari] = useState(null);
+
   useEffect(() => {
     const date = new Date();
     setInterval(() => {
