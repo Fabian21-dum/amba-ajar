@@ -5,8 +5,8 @@ export default function DashTodo() {
   return (
     <div className='flex w-full flex-col gap-4 p-4'>
       <div className='flex h-2/3 w-full flex-row justify-center gap-4'>
-        <div className='relative top-[0px] h-fit w-[1167px] rounded-[10px] border border-solid border-[rgba(232,231,231,1)] bg-white drop-shadow-lg'>
-          <div className='flex-container-1'>
+        <div className=' h-screen w-full rounded-[10px] border border-solid border-[rgba(232,231,231,1)] bg-white drop-shadow-lg'>
+          <div>
             <span className='relative left-[45px] top-[20px] text-4xl font-bold'>TO DO LIST</span>
             <Link to='/dashboard/AddTodo'>
               <button className='absolute right-[50px] top-[20px] h-[45px] w-[143.48px] rounded-[10px] bg-gradient-to-r from-[rgba(25,201,229,1)] to-[rgba(7,154,187,1)] text-center text-white drop-shadow-lg hover:bg-gradient-to-br'>
@@ -14,8 +14,8 @@ export default function DashTodo() {
               </button>
             </Link>
           </div>
-          <div className='table w-full rounded-[10px] p-2'>
-            <table className='mt-10 mb-5 w-full rounded-[30px] border bg-white'>
+          <div className='w-full rounded-[10px] border-slate-900 p-2'>
+            <table className='mt-10 mb-5  w-full rounded-[30px] bg-white'>
               <thead>
                 <tr className='bg-white-30 border-b'>
                   <th className='border-r p-2'></th>

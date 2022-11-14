@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { TODOLIST, JADWAL, SELESAI } from '../assets';
+import PropTypes from 'prop-types';
 
 function Icon() {
   return (
@@ -20,7 +21,18 @@ function Icon() {
   );
 }
 
-export default function ProfileDash() {
+export default function ProfileDash({ user }) {
+  const [avatar, setAvatar] = React.useState('');
+
+  const encodeAvatar = (buffer) => buffer.map((b) => String.fromCharCode(b)).join('');
+
+  useEffect(() => {
+    setTimeout(() => {
+      const base64 = new String(encodeAvatar(user.avatar.data));
+      if (!base64.startsWith('http')) setAvatar(`data:image/*;base64,${base64}`);
+    }, 4000);
+  }, [avatar]);
+
   return (
     <>
       <div className='h-full w-full'>
@@ -34,10 +46,10 @@ export default function ProfileDash() {
           </button>
         </div>
         <div className='mb-2 flex flex-col items-center'>
-          <div className='h-20 w-20 rounded-full bg-black'>
-            <img src='' alt='' />
+          <div className='h-20 w-20 overflow-hidden rounded-full bg-black'>
+            <img src={avatar} alt='user avatar' />
           </div>
-          <div className='text-2xl font-semibold'>INTAN FITRIANI</div>
+          <div className='text-2xl font-semibold'>{user.name || 'name'}</div>
         </div>
         <div className='flex justify-around'>
           <Icon />
@@ -46,3 +58,7 @@ export default function ProfileDash() {
     </>
   );
 }
+
+ProfileDash.propTypes = {
+  user: PropTypes.object,
+};
