@@ -5,7 +5,7 @@ import NavDashboard from '../components/NavbarDashboard';
 import { Outlet } from 'react-router-dom';
 import { GlobalContext } from '../contexts/GlobalContext';
 import useSound from 'use-sound';
-import { mySound } from '../assets/Index';
+import { mySound } from '../assets/';
 
 export default function DashboardLayout() {
   const { state, funct } = useContext(GlobalContext);

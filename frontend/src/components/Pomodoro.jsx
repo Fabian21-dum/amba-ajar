@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import useSound from 'use-sound';
-import { mySound } from '../assets/Index';
+import { mySound } from '../assets';
 import { GlobalContext } from '../contexts/GlobalContext';
 
 export default function Pomodoro() {
