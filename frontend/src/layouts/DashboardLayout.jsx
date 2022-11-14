@@ -3,6 +3,7 @@ import RootLayout from './RootLayout';
 import SideBar from '../components/Sidebar';
 import NavDashboard from '../components/NavbarDashboard';
 import { Outlet } from 'react-router-dom';
+import { Footer } from '../components';
 import { GlobalContext } from '../contexts/GlobalContext';
 import useSound from 'use-sound';
 import { mySound } from '../assets/';
@@ -104,6 +105,8 @@ export default function DashboardLayout() {
         <SideBar />
         <Outlet />
       </div>
+      <Footer/>
     </RootLayout>
+
   );
 }
