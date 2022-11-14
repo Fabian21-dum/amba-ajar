@@ -7,9 +7,5 @@ export default function Kalender() {
   const changeDate = (e) => {
     setDateState(e);
   };
-  return (
-    <>
-      <Calendar value={dateState} onChange={changeDate} />
-    </>
-  );
+  return <Calendar value={dateState} onChange={changeDate} />;
 }

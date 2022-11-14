@@ -20,9 +20,6 @@ async function createUser(name, email, password) {
     scheduleId,
     profile: { name, avatar },
     activityTimestamps: [0, 0, 0, 0, 0, 0, 0],
-    activityCount: 0,
-    scheduleCount: 0,
-    todoCount: 0,
   });
   await user.save();
   return user;
@@ -41,7 +38,6 @@ async function updateUserAvatar(id, avatarBuffer) {
 
 async function updateUserInformation(id, changes) {
   const { name } = changes;
-  console.log(changes);
   await User.updateOne(
     { id },
     {

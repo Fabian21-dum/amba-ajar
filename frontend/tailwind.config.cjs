@@ -7,7 +7,7 @@ module.exports = {
         center: true,
       },
       backgroundImage: {
-        zigzag: "url('/src/assets/zigzag.svg')",
+        zigzag: "url('/src/assets/image/zigzag.svg')",
       },
       boxShadow: {
         button: '6px 6px 0 0px #7c3aed',

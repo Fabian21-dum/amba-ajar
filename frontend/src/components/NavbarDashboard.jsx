@@ -29,12 +29,12 @@ export default function NavDashboard() {
             <p>HOME</p>
           </div>
         </Link>
-        <Link to={'to-do-list'}>
+        <Link to={'/dashboard/Todo'}>
           <div className='h-fit w-full p-4 text-center font-bold hover:bg-cyan-100 hover:text-cyan-600'>
             <p>TO DO LIST</p>
           </div>
         </Link>
-        <Link to={'jadwal'}>
+        <Link to={'/dashboard/DashJad'}>
           <div className='h-fit w-full p-4 text-center font-bold hover:bg-cyan-100 hover:text-cyan-600'>
             <p>JADWAL</p>
           </div>

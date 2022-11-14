@@ -11,6 +11,7 @@ async function getUserById(req, res) {
   if (user) {
     return res.send({
       message: 'successfully retrieved user information',
+      status: 200,
       user,
     });
   }
@@ -116,24 +117,9 @@ async function getUserActivity(req, res) {
   }
 }
 
-/**
- * @param {import('express').Request} req
- * @param {import('express').Response} res
- */
-async function getUserStats(req, res) {
-  const { id } = req.params;
-  try {
-    const stats = await userServices.getUserStatsCount(id);
-    return res.send({ message: 'successfully retrieved user stats', stats });
-  } catch (err) {
-    return res.status(400).send({ message: 'failed to retrieve user stats' });
-  }
-}
-
 module.exports = {
   getUserById,
   getUserActivity,
-  getUserStats,
   updateUserAvatar,
   updateUserInformation,
   updateUserPassword,

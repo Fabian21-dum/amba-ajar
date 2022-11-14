@@ -4,7 +4,7 @@
   "description": "backend for AmbaAjar",
   "main": "src/index.js",
   "scripts": {
-    "start": "node .",
+    "start": "NODE_ENV=prod node .",
     "dev": "nodemon src/index.js",
     "lint": "eslint src/**/*.js",
     "prettier": "prettier --write src/**/*.js"
