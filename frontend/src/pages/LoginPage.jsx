@@ -3,6 +3,7 @@ import RootLayout from '../layouts/RootLayout';
 import loginLogo from '../assets/image/Login.svg';
 import { Link } from 'react-router-dom';
 import Input from '../components/Input';
+
 import axios from 'axios';
 import jsCookie from 'js-cookie';
 import { Navigate } from 'react-router-dom';
@@ -53,6 +54,7 @@ export default function LoginPage() {
               <form onSubmit={loginHandler}>
                 <Input name='email' type='email' placeholder='email@gmail.com' onChange={onChangeHandler} />
                 <Input name='password' type='password' placeholder='password' onChange={onChangeHandler} />
+
                 <button
                   type='submit'
                   className='w-full rounded-lg border border-black bg-[#BDF7F9] py-2.5  text-center text-sm font-bold text-black'

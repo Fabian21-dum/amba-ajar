@@ -10,8 +10,9 @@ export default function Quote() {
       const data = async () => {
         try {
           const response = await axios.get('https://api.quotable.io/random?minLength=100&maxLength=140');
-          setText(response.data);
-          const quote = { author: response.data.author, content: response.data.content };
+          const { author, content } = response.data;
+          const quote = { author, content };
+          setText(quote);
           Cookies.set('quote', JSON.stringify(quote), { expires: 1 });
         } catch (error) {
           console.log(error);
