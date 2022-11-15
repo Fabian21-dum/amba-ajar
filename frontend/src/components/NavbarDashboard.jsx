@@ -39,7 +39,7 @@ export default function NavDashboard() {
             <p>JADWAL</p>
           </div>
         </Link>
-        <Link to={'/dashboard'}>
+        <Link to={'/dashboard/Settings'}>
           <div className='h-fit w-full p-4 text-center font-bold hover:bg-cyan-100 hover:text-cyan-600'>
             <p>PENGATURAN</p>
           </div>

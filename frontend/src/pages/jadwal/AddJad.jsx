@@ -53,7 +53,7 @@ export default function AddJad() {
                   id='date'
                   required
                   onChange={onChangeHandler}
-                  className='mb-5 mt-5 h-[50px] w-full rounded-[15px] border-2 border-solid border-black'
+                  className='pl-3 mb-5 mt-5 h-[50px] w-full rounded-[15px] border-2 border-solid border-black'
                 />
               </div>
             </div>
@@ -65,7 +65,7 @@ export default function AddJad() {
                 id='course'
                 required
                 onChange={onChangeHandler}
-                className='mb-5 mt-5 h-[50px] w-full rounded-[15px] border-2 border-solid border-black'
+                className='pl-3 mb-5 mt-5 h-[50px] w-full rounded-[15px] border-2 border-solid border-black'
               />
             </div>
             <div className='ml-12 mr-3'>
@@ -76,7 +76,7 @@ export default function AddJad() {
                 id='mentor'
                 required
                 onChange={onChangeHandler}
-                className='mb-5 mt-5 h-[50px] w-full rounded-[15px] border-2 border-solid border-black'
+                className='pl-3 mb-5 mt-5 h-[50px] w-full rounded-[15px] border-2 border-solid border-black'
               />
             </div>
             <div className='ml-12 mr-3'>
@@ -87,12 +87,12 @@ export default function AddJad() {
                 id='duration'
                 required
                 onChange={onChangeHandler}
-                className='mb-5 mt-5 h-[50px] w-full rounded-[15px] border-2 border-solid border-black'
+                className='pl-3 mb-5 mt-5 h-[50px] w-full rounded-[15px] border-2 border-solid border-black'
               />
             </div>
             <button
               type='submit'
-              className='relative mt-10 mb-5 h-[45px] w-[143.48px]  rounded-[10px] bg-gradient-to-r from-[rgba(25,201,229,1)] to-[rgba(7,154,187,1)] text-center text-white hover:bg-gradient-to-br sm:left-[745px] lg:left-[902px]'
+              className='relative mt-10 mb-5 h-[45px] w-[143.48px]  rounded-[10px] bg-gradient-to-r from-[rgba(25,201,229,1)] to-[rgba(7,154,187,1)] text-center text-white hover:bg-gradient-to-br sm:left-[781px] lg:left-[899px]'
             >
               Tambah
             </button>

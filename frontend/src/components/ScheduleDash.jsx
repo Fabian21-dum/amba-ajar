@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 export default function ScheduleDash({ jadwal }) {
   return (
     <>
-      <div className='relative w-full overflow-x-auto  sm:rounded-lg'>
+      <div className='w-full overflow-x-auto sm:rounded-lg'>
         <table className=' w-full text-left text-sm text-gray-500'>
           <thead className='bg-gray-50 text-xs uppercase text-gray-700 '>
             <tr>

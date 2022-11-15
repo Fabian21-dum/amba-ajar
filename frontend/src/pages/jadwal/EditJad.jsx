@@ -72,7 +72,7 @@ export default function EditJad() {
                   id='date'
                   value={field.date}
                   onChange={onChangeHandler}
-                  className='mb-5 mt-5 h-[50px] w-full rounded-[15px] border-2 border-solid border-black'
+                  className='pl-3 mb-5 mt-5 h-[50px] w-full rounded-[15px] border-2 border-solid border-black'
                 />
               </div>
             </div>
@@ -84,7 +84,7 @@ export default function EditJad() {
                 id='course'
                 value={field.course}
                 onChange={onChangeHandler}
-                className='mb-5 mt-5 h-[50px] w-full rounded-[15px] border-2 border-solid border-black'
+                className='pl-3 mb-5 mt-5 h-[50px] w-full rounded-[15px] border-2 border-solid border-black'
               />
             </div>
             <div className='ml-12 mr-3'>
@@ -95,7 +95,7 @@ export default function EditJad() {
                 id='mentor'
                 value={field.mentor}
                 onChange={onChangeHandler}
-                className='mb-5 mt-5 h-[50px] w-full rounded-[15px] border-2 border-solid border-black'
+                className='pl-3 mb-5 mt-5 h-[50px] w-full rounded-[15px] border-2 border-solid border-black'
               />
             </div>
             <div className='ml-12 mr-3'>
@@ -106,10 +106,10 @@ export default function EditJad() {
                 id='duration'
                 value={field.duration}
                 onChange={onChangeHandler}
-                className='mb-5 mt-5 h-[50px] w-full rounded-[15px] border-2 border-solid border-black'
+                className='pl-3 mb-5 mt-5 h-[50px] w-full rounded-[15px] border-2 border-solid border-black'
               />
             </div>
-            <button className='relative mt-10 mb-5 h-[45px] w-[143.48px]  rounded-[10px] bg-gradient-to-r from-[rgba(25,201,229,1)] to-[rgba(7,154,187,1)] text-center text-white hover:bg-gradient-to-br sm:left-[745px] lg:left-[902px]'>
+            <button className='relative mt-10 mb-5 h-[45px] w-[143.48px]  rounded-[10px] bg-gradient-to-r from-[rgba(25,201,229,1)] to-[rgba(7,154,187,1)] text-center text-white hover:bg-gradient-to-br sm:left-[781px] lg:left-[902px]'>
               EDIT
             </button>
           </form>
