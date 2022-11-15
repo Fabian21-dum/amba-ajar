@@ -19,7 +19,7 @@ export default function HomePage() {
     <HomeLayout>
       <header className='h-[900px] bg-gradient-to-b from-cyan-300 px-4 pt-16 sm:h-[800px]'>
         <div className='container  flex flex-col-reverse lg:flex-row lg:items-center lg:justify-between'>
-          <div className='w-full md:max-w-md lg:w-1/2'>
+          <div className='w-full smd:max-w-md lg:w-1/2'>
             <h2 className='py-5 text-5xl font-bold lg:text-6xl'>Tracking Belajar mu! Bersama Kami</h2>
             <p className='pb-5 font-semibold md:text-lg'>
               Belajar mudah dengan adanya fitur - fitur yang dapat membantu-mu memahami bagaimana progress belajar mu

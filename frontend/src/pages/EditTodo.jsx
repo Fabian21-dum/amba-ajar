@@ -25,7 +25,7 @@ export default function EditTodo(){
               <span className='text-xl font-bold mt-10'>To-Do</span>
               <input type="text" name='todo' id='todo' className='mb-5 mt-5 rounded-[15px] border-solid border-2 border-black w-full h-[100px]' />
             </div>
-            <button className="relative mt-10 mb-5 w-[143.48px] h-[45px]  sm:left-[745px] lg:left-[902px] bg-gradient-to-r from-[rgba(25,201,229,1)] to-[rgba(7,154,187,1)] rounded-[10px] text-white text-center hover:bg-gradient-to-br">Edit</button>
+            <button className="relative mt-10 mb-5 w-[143.48px] h-[45px] from-[rgba(25,201,229,1)] to-[rgba(7,154,187,1)] rounded-[10px] text-white text-center hover:bg-gradient-to-br bg-gradient-to-r sm:left-[782px] lg:left-[905px]">Edit</button>
 
           </div>
     </div>

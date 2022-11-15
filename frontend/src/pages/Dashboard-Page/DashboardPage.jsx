@@ -62,12 +62,12 @@ export default function DashboardPage() {
           <div className='h-full w-[956px] rounded-xl bg-white p-4 shadow-xl'>
             <div className='flex justify-between px-4'>
               <div>
-                <h3 className='text-xl font-bold'>JADWAL</h3>
+                <h3 className='text-xl font-bold mt-2'>JADWAL</h3>
               </div>
               <div>
                 <button
                   type='button'
-                  className='hoversbg-gradient-to-br mr-2 mb-2 rounded-lg bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 px-5 py-2.5 text-center text-sm font-medium text-white shadow-md shadow-cyan-500/50 focus:outline-none focus:ring-4 focus:ring-cyan-300'
+                  className='hoversbg-gradient-to-br mr-2 mb-3 rounded-lg bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 px-5 py-2.5 text-center text-sm font-medium text-white shadow-md shadow-cyan-500/50 focus:outline-none focus:ring-4 focus:ring-cyan-300 hover:bg-gradient-to-br'
                 >
                   Selengkapnya
                 </button>
@@ -75,7 +75,7 @@ export default function DashboardPage() {
             </div>
             <ScheduleDash />
           </div>
-          <div className='h-full w-[340px] rounded-xl bg-[#079ABB] py-5 px-4 text-white shadow-xl'>
+          <div className='h-full w-[310px] rounded-xl bg-[#079ABB] py-5 px-4 text-white shadow-xl'>
             <Quote />
           </div>
         </div>
