@@ -1,8 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { TODOLIST, JADWAL, SELESAI } from '../assets';
 import PropTypes from 'prop-types';
+import { GlobalContext } from '../contexts/GlobalContext';
 
 function Icon() {
+  const { state } = useContext(GlobalContext);
+  const { dataJadwal, dataTodo } = state;
+
   return (
     <>
       <div className='flex items-center justify-center'>
@@ -11,11 +15,11 @@ function Icon() {
       </div>
       <div className='flex items-center justify-center'>
         <img src={TODOLIST} alt='' className='mr-2 h-8' />
-        <p className='font-bold'>0</p>
+        <p className='font-bold'>{dataJadwal.length}</p>
       </div>
       <div className='flex items-center justify-center'>
         <img src={SELESAI} alt='' className='mr-2 h-8' />
-        <p className='font-bold'>0</p>
+        <p className='font-bold'>{dataTodo.length}</p>
       </div>
     </>
   );
@@ -37,10 +41,10 @@ export default function ProfileDash({ user }) {
     <>
       <div className='h-full w-full'>
         <div className='flex justify-between'>
-          <h3 className='text-2xl font-bold'>PROFILE</h3>
+          <h3 className='ml-1 text-2xl font-bold'>PROFILE</h3>
           <button
             type='button'
-            className='mr-2 rounded-lg bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 px-2.5 py-2 text-center text-sm font-medium text-white shadow-md shadow-cyan-500/50 hover:bg-gradient-to-br focus:outline-none focus:ring-4 focus:ring-cyan-300'
+            className='mr-2 w-16 rounded-lg bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 px-2.5 py-2 text-center text-sm font-medium text-white shadow-md shadow-cyan-500/50 hover:bg-gradient-to-br focus:outline-none focus:ring-4 focus:ring-cyan-300'
           >
             Edit
           </button>

@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { LOGO, HOME, LIST, CALENDAR, SETTING, Logout } from '../assets';
+
 import jsCookie from 'js-cookie';
 
+
 export default function SideBar() {
+
   return (
     <>
       <div className='flex h-screen w-[10%] flex-col items-center gap-4 bg-white py-7 shadow-lg'>
@@ -31,7 +34,9 @@ export default function SideBar() {
               <img src={SETTING} alt='logo SETTING' />
             </div>
           </Link>
+
           <Link to={'/'} onClick={() => jsCookie.remove('token')}>
+
             <div className='pointer flex h-14 w-14 justify-center rounded-xl bg-cyan-100 p-2'>
               <img src={Logout} alt='logo SETTING' />
             </div>

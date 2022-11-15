@@ -1,5 +1,7 @@
 import React, { createContext, useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 const GlobalContext = createContext();
 
@@ -34,31 +36,6 @@ const GlobalProvider = ({ children }) => {
   const [barData, setBardata] = useState([0, 0, 0, 0, 0, 0, 0]);
 
   const [hari, setHari] = useState(null);
-
-  const state = {
-    timeSession,
-    setTimeSession,
-    timeBreak,
-    setTimeBreak,
-    secondsRemaining,
-    setSecondsRemaining,
-    status,
-    setStatus,
-    start,
-    setStart,
-    title,
-    setTitle,
-    timeActivity,
-    setTimeActivity,
-    barData,
-    setBardata,
-    hari,
-    setHari,
-    dataHari,
-    setDataHari,
-    stop,
-    setStop,
-  };
 
   function Increment(event) {
     let id = event.target.id;
@@ -118,13 +95,80 @@ const GlobalProvider = ({ children }) => {
 
     setBardata([Senin, Selasa, Rabu, Kamis, Jumat, Sabtu, Minggu]);
   };
+
+  const [paramData, setParamData] = useState(null);
+  const [dataJadwal, setDataJadwal] = useState([]);
+  const [dataTodo, setDataTodo] = useState([]);
   const funct = {
     Increment,
     Decrement,
     useInterval,
     StoreActivity,
   };
-  return <GlobalContext.Provider value={{ state, funct }}>{children}</GlobalContext.Provider>;
+
+  //Handling Section
+  const [fetchStatus, setFetchStatus] = useState(true);
+  const [inputLogin, setInputLogin] = useState({
+    nama: '',
+    email: '',
+    password: '',
+  });
+
+  const HandlingInputLogin = (event) => {
+    let value = event.target.value;
+    let name = event.target.name;
+
+    setInputLogin({ ...inputLogin, [name]: value });
+    console.log(inputLogin);
+  };
+
+  const RemoveToken = () => {
+    let navigate = useNavigate();
+    Cookies.remove('token');
+    navigate('/Login');
+  };
+
+  const handling = {
+    HandlingInputLogin,
+    RemoveToken,
+  };
+
+  const state = {
+    timeSession,
+    setTimeSession,
+    timeBreak,
+    setTimeBreak,
+    secondsRemaining,
+    setSecondsRemaining,
+    status,
+    setStatus,
+    start,
+    setStart,
+    title,
+    setTitle,
+    timeActivity,
+    setTimeActivity,
+    barData,
+    setBardata,
+    hari,
+    setHari,
+    dataHari,
+    setDataHari,
+    stop,
+    setStop,
+    inputLogin,
+    setInputLogin,
+    fetchStatus,
+    setFetchStatus,
+    paramData,
+    setParamData,
+    dataJadwal,
+    setDataJadwal,
+    dataTodo,
+    setDataTodo,
+  };
+
+  return <GlobalContext.Provider value={{ state, funct, handling }}>{children}</GlobalContext.Provider>;
 };
 
 GlobalProvider.propTypes = {
