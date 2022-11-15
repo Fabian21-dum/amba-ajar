@@ -27,29 +27,29 @@ export default function DashboardSettings() {
             </div>
             <div className='flex h-full w-full gap-6'>
               <div className='w-1/2 rounded-3xl border-2 p-5 shadow-lg'>
-                <p className='text-xl font-bold'>INFORMASI PRIBADI</p>
+                <p className='text-xl font-bold'>UPDATE PASSWORD</p>
                 <form>
                   <div className='mb-6'>
                     <label htmlFor='email' className='mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300'>
-                      Your email
+                      Current Password
                     </label>
                     <input
                       type='email'
                       id='email'
                       className='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500'
-                      placeholder='name@flowbite.com'
+                      placeholder='Current Password'
                       required
                     />
                   </div>
                   <div className='mb-6'>
                     <label htmlFor='email' className='mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300'>
-                      Your email
+                      New PassWord
                     </label>
                     <input
                       type='email'
                       id='email'
                       className='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500'
-                      placeholder='name@flowbite.com'
+                      placeholder='New Password'
                       required
                     />
                   </div>

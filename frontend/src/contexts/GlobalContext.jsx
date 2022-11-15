@@ -41,12 +41,12 @@ const GlobalProvider = ({ children }) => {
     let id = event.target.id;
     if (id === 'Session') {
       if (timeSession !== 25) {
-        setTimeSession(timeSession + 5);
+        setTimeSession(timeSession + 1);
         setSecondsRemaining(timeSession * 60);
       }
     } else {
       if (timeBreak !== 15) {
-        setTimeBreak(timeBreak + 5);
+        setTimeBreak(timeBreak + 1);
         setSecondsRemaining(timeSession * 60);
       }
     }
@@ -54,12 +54,12 @@ const GlobalProvider = ({ children }) => {
   function Decrement(event) {
     let id = event.target.id;
     if (id === 'Session') {
-      if (timeSession !== 5) {
-        setTimeSession(timeSession - 5);
+      if (timeSession < 5) {
+        setTimeSession(timeSession - 1);
       }
     } else {
-      if (timeBreak !== 5) {
-        setTimeBreak(timeBreak - 5);
+      if (timeBreak > 5) {
+        setTimeBreak(timeBreak - 1);
       }
     }
   }
