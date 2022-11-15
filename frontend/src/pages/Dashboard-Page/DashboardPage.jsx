@@ -32,6 +32,7 @@ export default function DashboardPage() {
 
     const jadwal = async () => {
       try {
+        console.log(user.scheduleId);
         const response = await axios.get(`${import.meta.env.VITE_API_URL}/schedule/${user.scheduleId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
@@ -46,6 +47,7 @@ export default function DashboardPage() {
 
     const todo = async () => {
       try {
+        console.log('todo');
         const response = await axios.get(`${import.meta.env.VITE_API_URL}/todo/${user.todoId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
@@ -63,10 +65,10 @@ export default function DashboardPage() {
       <div className='flex h-screen w-full flex-col gap-4 p-4'>
         <div className='flex h-2/3 w-full flex-row justify-center gap-4'>
           <div className='flex h-full w-1/4 flex-col gap-4 '>
-            <div className='h-1/2 rounded-xl bg-white p-4 shadow-xl'>
+          <div className='h-1/2 rounded-xl bg-white shadow-xl'>
               <Pomodoro />
             </div>
-            <div className='h-1/2 rounded-xl bg-white p-4  shadow-xl'>
+            <div className='h-1/2 rounded-xl bg-white p-4 shadow-xl'>
               <p className='text-center font-bold'>AKTIVITAS</p>
               <ChartBar />
             </div>
@@ -89,7 +91,7 @@ export default function DashboardPage() {
           </div>
         </div>
         <div className='flex h-1/3 w-full flex-row justify-center gap-4'>
-          <div className='h-full w-[1024px] rounded-xl bg-white p-4 shadow-xl'>
+        <div className='h-full w-[956px] rounded-xl bg-white p-4 shadow-xl'>
             <div className='flex justify-between px-4'>
               <div>
                 <h3 className='text-xl font-bold mt-2'>JADWAL</h3>
@@ -107,7 +109,7 @@ export default function DashboardPage() {
             </div>
             <ScheduleDash jadwal={dataJadwal} />
           </div>
-          <div className='h-full w-[310px] rounded-xl bg-[#079ABB] py-5 px-4 text-white shadow-xl'>
+          <div className='h-full w-[340px] rounded-xl bg-[#079ABB] py-5 px-4 text-white shadow-xl'>
             <Quote />
           </div>
         </div>
