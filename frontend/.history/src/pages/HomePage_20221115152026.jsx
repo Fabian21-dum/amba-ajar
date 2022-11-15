@@ -17,7 +17,7 @@ import Chart  from '../assets/icons/Group 5.png';
 export default function HomePage() {
   return (
     <HomeLayout>
-      <header className='h-[900px] bg-gradient-to-b from-cyan-300 px-4 pt-16 sm:h-[800px]'>
+      <header className='h-[900px] bg-gradient-to-b from-cyan-300 px-4 pt-16 sm:h-[800px] p-5'>
         <div className='container  flex flex-col-reverse lg:flex-row lg:items-center lg:justify-between'>
           <div className='w-full md:max-w-md lg:w-1/2'>
             <h2 className='py-5 text-5xl font-bold lg:text-6xl'>Tracking Belajar mu! Bersama Kami</h2>
@@ -60,7 +60,7 @@ export default function HomePage() {
       {/*Benefits Section */}
       <section className='h-36 bg-cyan-300 bg-zigzag bg-center bg-repeat-x py-4'></section>
       <section className='bg-gradient-to-b from-cyan-300 py-8'>
-        <div className='container p-10'>
+        <div className='container'>
           <h1 className='pt-8 text-center text-3xl font-bold'>Apa saja manfaat Tracking proses belajar? </h1>
           <div className='container flex items-center'>
           <div className='w-screen'>

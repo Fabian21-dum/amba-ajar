@@ -60,7 +60,7 @@ export default function HomePage() {
       {/*Benefits Section */}
       <section className='h-36 bg-cyan-300 bg-zigzag bg-center bg-repeat-x py-4'></section>
       <section className='bg-gradient-to-b from-cyan-300 py-8'>
-        <div className='container p-10'>
+        <div className='container p-5'>
           <h1 className='pt-8 text-center text-3xl font-bold'>Apa saja manfaat Tracking proses belajar? </h1>
           <div className='container flex items-center'>
           <div className='w-screen'>
