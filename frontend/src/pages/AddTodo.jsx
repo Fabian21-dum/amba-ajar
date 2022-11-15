@@ -49,12 +49,12 @@ export default function AddTodo() {
                 name='title'
                 id='title'
                 onChange={onChangeHandler}
-                className='mb-5 mt-5 h-[100px] w-full rounded-[15px] border-2 border-solid border-black'
+                className='pl-5 mb-5 mt-5 h-[100px] w-full rounded-[15px] border-2 border-solid border-black'
               />
             </div>
             <button
               type='submit'
-              className='relative mt-10 mb-5 h-[45px] w-[143.48px]  rounded-[10px] bg-gradient-to-r from-[rgba(25,201,229,1)] to-[rgba(7,154,187,1)] text-center text-white hover:bg-gradient-to-br sm:left-[745px] lg:left-[902px]'
+              className='relative mt-10 mb-5 h-[45px] w-[143.48px]  rounded-[10px] bg-gradient-to-r from-[rgba(25,201,229,1)] to-[rgba(7,154,187,1)] text-center text-white hover:bg-gradient-to-br sm:left-[781px] lg:left-[902px]'
             >
               Tambah
             </button>

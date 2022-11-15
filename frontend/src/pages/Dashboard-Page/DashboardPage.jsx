@@ -94,7 +94,7 @@ export default function DashboardPage() {
           <div className='h-full w-[1024px] rounded-xl bg-white p-4 shadow-xl'>
             <div className='flex justify-between px-4'>
               <div>
-                <h3 className='text-xl font-bold'>JADWAL</h3>
+                <h3 className='text-xl font-bold mt-2'>JADWAL</h3>
               </div>
               <div>
                 <Link to={'/dashboard/dashjad'}>
@@ -109,7 +109,7 @@ export default function DashboardPage() {
             </div>
             <ScheduleDash jadwal={dataJadwal} />
           </div>
-          <div className='h-full w-[340px] rounded-xl bg-[#079ABB] py-5 px-4 text-white shadow-xl'>
+          <div className='h-full w-[310px] rounded-xl bg-[#079ABB] py-5 px-4 text-white shadow-xl'>
             <Quote />
           </div>
         </div>
