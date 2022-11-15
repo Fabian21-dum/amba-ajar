@@ -23,12 +23,13 @@ export default function DashJad() {
       }
     };
     jadwal();
-  }, [dataJadwal]);
+  }, []);
 
   const deleteHandler = async (event) => {
-    console.log(token);
-    console.log(user.scheduleId);
     try {
+      console.log(token);
+      console.log(user.scheduleId);
+      console.log(event.target.value);
       const response = await axios.delete(
         `${import.meta.env.VITE_API_URL}/schedule/${user.scheduleId}`,
         { scheduleId: event.target.value },

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 export default function ToDoListDash({ todo }) {
-  console.log(todo);
   return (
     <>
       <p className='mb-3 text-2xl font-extrabold'>TO DO LIST</p>

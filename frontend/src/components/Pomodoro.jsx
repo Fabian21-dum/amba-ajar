@@ -34,6 +34,7 @@ export default function Pomodoro() {
   const handleStop = () => {
     setStatus('Stopped');
     setStop(true);
+    stop();
   };
   const handleReset = () => {
     setStatus('Stopped');
@@ -95,7 +96,9 @@ export default function Pomodoro() {
           </>
         ) : (
           <>
-            <h3 className='text-2xl font-bold pt-3'>{title === 'Session' ? 'Waktunya Belajar' : 'Saatnya Istirahat'}</h3>
+            <h3 className='pt-3 text-2xl font-bold'>
+              {title === 'Session' ? 'Waktunya Belajar' : 'Saatnya Istirahat'}
+            </h3>
             <h3 className='text-6xl font-semibold'>
               {twoDigits(minutesToDisplay)}:{twoDigits(secondsToDisplay)}
             </h3>
