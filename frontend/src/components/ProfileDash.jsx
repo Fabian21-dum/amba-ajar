@@ -1,8 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { TODOLIST, JADWAL, SELESAI } from '../assets';
 import PropTypes from 'prop-types';
+import { GlobalContext } from '../contexts/GlobalContext';
 
 function Icon() {
+  const { state } = useContext(GlobalContext);
+  const { dataJadwal, dataTodo } = state;
+
   return (
     <>
       <div className='flex items-center justify-center'>
@@ -11,11 +15,11 @@ function Icon() {
       </div>
       <div className='flex items-center justify-center'>
         <img src={TODOLIST} alt='' className='mr-2 h-8' />
-        <p className='font-bold'>0</p>
+        <p className='font-bold'>{dataJadwal.length}</p>
       </div>
       <div className='flex items-center justify-center'>
         <img src={SELESAI} alt='' className='mr-2 h-8' />
-        <p className='font-bold'>0</p>
+        <p className='font-bold'>{dataTodo.length}</p>
       </div>
     </>
   );
