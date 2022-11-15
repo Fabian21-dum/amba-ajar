@@ -98,6 +98,7 @@ const GlobalProvider = ({ children }) => {
 
   const [paramData, setParamData] = useState(null);
   const [dataJadwal, setDataJadwal] = useState([]);
+  const [dataTodo, setDataTodo] = useState([]);
   const funct = {
     Increment,
     Decrement,
@@ -163,6 +164,8 @@ const GlobalProvider = ({ children }) => {
     setParamData,
     dataJadwal,
     setDataJadwal,
+    dataTodo,
+    setDataTodo,
   };
 
   return <GlobalContext.Provider value={{ state, funct, handling }}>{children}</GlobalContext.Provider>;

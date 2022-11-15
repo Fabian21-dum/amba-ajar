@@ -1,7 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import decode from 'jwt-decode';
+import Cookies from 'js-cookie';
+import { GlobalContext } from '../contexts/GlobalContext';
 
 export default function DashTodo() {
+  const { state } = useContext(GlobalContext);
+  const { setParamData, dataTodo, setDataTodo } = state;
+
+  const token = Cookies.get('token');
+  const user = decode(token);
+  useEffect(() => {
+    const todo = async () => {
+      try {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/todo/${user.todoId}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        setDataTodo(response.data);
+        console.log(response);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    todo();
+  }, []);
   return (
     <div className='flex w-full flex-col gap-4 p-4'>
       <div className='flex h-2/3 w-full flex-row justify-center gap-4'>
@@ -36,7 +59,7 @@ export default function DashTodo() {
               <tbody>
                 <tr className='bg-white-100 text-white-600 border-b text-center text-sm'>
                   <td className='border-r p-2'>
-                    <input type='checkbox' checked />
+                    <input type='checkbox' name='check' />
                   </td>
                   <td className='border-r p-2'>1</td>
                   <td className='border-r p-2'>20 September 2022</td>
@@ -50,205 +73,6 @@ export default function DashTodo() {
                         Edit
                       </button>
                     </Link>
-                    <button
-                      href='#'
-                      className=' h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(247,116,116,1)] to-[rgba(230,51,51,1)] text-white'
-                    >
-                      Hapus
-                    </button>
-                  </td>
-                </tr>
-                <tr className='bg-white-100 text-white-600 border-b text-center text-sm'>
-                  <td className='border-r p-2'>
-                    <input type='checkbox' />
-                  </td>
-                  <td className='border-r p-2'>2</td>
-                  <td className='border-r p-2'>21 September 2022</td>
-                  <td className='border-r p-2'>Tugas Bahasa Inggris</td>
-                  <td>
-                    <button
-                      href='#'
-                      className=' mr-2 h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(51,121,246,1)] to-[rgba(26,90,227,1)] text-white'
-                    >
-                      Edit
-                    </button>
-                    <button
-                      href='#'
-                      className=' h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(247,116,116,1)] to-[rgba(230,51,51,1)] text-white'
-                    >
-                      Hapus
-                    </button>
-                  </td>
-                </tr>
-                <tr className='bg-white-100 text-white-600 border-b text-center text-sm'>
-                  <td className='border-r p-2'>
-                    <input type='checkbox' />
-                  </td>
-                  <td className='border-r p-2'>3</td>
-                  <td className='border-r p-2'>21 September 2022</td>
-                  <td className='border-r p-2'>Pelajari RUST</td>
-                  <td>
-                    <button
-                      href='#'
-                      className=' mr-2 h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(51,121,246,1)] to-[rgba(26,90,227,1)] text-white'
-                    >
-                      Edit
-                    </button>
-                    <button
-                      href='#'
-                      className=' h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(247,116,116,1)] to-[rgba(230,51,51,1)] text-white'
-                    >
-                      Hapus
-                    </button>
-                  </td>
-                </tr>
-                <tr className='bg-white-100 text-white-600 border-b text-center text-sm'>
-                  <td className='border-r p-2'>
-                    <input type='checkbox' />
-                  </td>
-                  <td className='border-r p-2'>4</td>
-                  <td className='border-r p-2'>21 September 2022</td>
-                  <td className='border-r p-2'>Pelajari Node</td>
-                  <td>
-                    <button
-                      href='#'
-                      className=' mr-2 h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(51,121,246,1)] to-[rgba(26,90,227,1)] text-white'
-                    >
-                      Edit
-                    </button>
-                    <button
-                      href='#'
-                      className=' h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(247,116,116,1)] to-[rgba(230,51,51,1)] text-white'
-                    >
-                      Hapus
-                    </button>
-                  </td>
-                </tr>
-                <tr className='bg-white-100 text-white-600 border-b text-center text-sm'>
-                  <td className='border-r p-2'>
-                    <input type='checkbox' />
-                  </td>
-                  <td className='border-r p-2'>5</td>
-                  <td className='border-r p-2'>21 September 2022</td>
-                  <td className='border-r p-2'>Pelajari Laravel</td>
-                  <td>
-                    <button
-                      href='#'
-                      className=' mr-2 h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(51,121,246,1)] to-[rgba(26,90,227,1)] text-white'
-                    >
-                      Edit
-                    </button>
-                    <button
-                      href='#'
-                      className=' h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(247,116,116,1)] to-[rgba(230,51,51,1)] text-white'
-                    >
-                      Hapus
-                    </button>
-                  </td>
-                </tr>
-                <tr className='bg-white-100 text-white-600 border-b text-center text-sm'>
-                  <td className='border-r p-2'>
-                    <input type='checkbox' />
-                  </td>
-                  <td className='border-r p-2'>6</td>
-                  <td className='border-r p-2'>21 September 2022</td>
-                  <td className='border-r p-2'>Pelajari React.js</td>
-                  <td>
-                    <button
-                      href='#'
-                      className=' mr-2 h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(51,121,246,1)] to-[rgba(26,90,227,1)] text-white'
-                    >
-                      Edit
-                    </button>
-                    <button
-                      href='#'
-                      className=' h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(247,116,116,1)] to-[rgba(230,51,51,1)] text-white'
-                    >
-                      Hapus
-                    </button>
-                  </td>
-                </tr>
-                <tr className='bg-white-100 text-white-600 border-b text-center text-sm'>
-                  <td className='border-r p-2'>
-                    <input type='checkbox' />
-                  </td>
-                  <td className='border-r p-2'>7</td>
-                  <td className='border-r p-2'>22 September 2022</td>
-                  <td className='border-r p-2'>Perbaiki tampilan situs</td>
-                  <td>
-                    <button
-                      href='#'
-                      className=' mr-2 h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(51,121,246,1)] to-[rgba(26,90,227,1)] text-white'
-                    >
-                      Edit
-                    </button>
-                    <button
-                      href='#'
-                      className=' h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(247,116,116,1)] to-[rgba(230,51,51,1)] text-white'
-                    >
-                      Hapus
-                    </button>
-                  </td>
-                </tr>
-                <tr className='bg-white-100 text-white-600 border-b text-center text-sm'>
-                  <td className='border-r p-2'>
-                    <input type='checkbox' />
-                  </td>
-                  <td className='border-r p-2'>8</td>
-                  <td className='border-r p-2'>22 September 2022</td>
-                  <td className='border-r p-2'>Tugas Bahasa Indonesia</td>
-                  <td>
-                    <button
-                      href='#'
-                      className=' mr-2 h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(51,121,246,1)] to-[rgba(26,90,227,1)] text-white'
-                    >
-                      Edit
-                    </button>
-                    <button
-                      href='#'
-                      className=' h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(247,116,116,1)] to-[rgba(230,51,51,1)] text-white'
-                    >
-                      Hapus
-                    </button>
-                  </td>
-                </tr>
-                <tr className='bg-white-100 text-white-600 border-b text-center text-sm'>
-                  <td className='border-r p-2'>
-                    <input type='checkbox' />
-                  </td>
-                  <td className='border-r p-2'>9</td>
-                  <td className='border-r p-2'>22 September 2022</td>
-                  <td className='border-r p-2'>Tugas Matematika</td>
-                  <td>
-                    <button
-                      href='#'
-                      className=' mr-2 h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(51,121,246,1)] to-[rgba(26,90,227,1)] text-white'
-                    >
-                      Edit
-                    </button>
-                    <button
-                      href='#'
-                      className=' h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(247,116,116,1)] to-[rgba(230,51,51,1)] text-white'
-                    >
-                      Hapus
-                    </button>
-                  </td>
-                </tr>
-
-                <tr className='bg-white-100 text-white-600 border-b text-center text-sm'>
-                  <td className='border-r p-2'>
-                    <input type='checkbox' />
-                  </td>
-                  <td className='border-r p-2'>10</td>
-                  <td className='border-r p-2'>28 Oktober 2022</td>
-                  <td className='border-r p-2'>Belajar Vb</td>
-                  <td>
-                    <button
-                      href='#'
-                      className=' mr-2 h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(51,121,246,1)] to-[rgba(26,90,227,1)] text-white'
-                    >
-                      Edit
-                    </button>
                     <button
                       href='#'
                       className=' h-[29px] w-[69px] rounded-[10px] bg-gradient-to-br from-[rgba(247,116,116,1)] to-[rgba(230,51,51,1)] text-white'

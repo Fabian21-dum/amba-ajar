@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import decode from 'jwt-decode';
@@ -26,7 +26,9 @@ export default function AddJad() {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-      console.log(response.data);
+      if (response.status === 201) {
+        <Navigate to='dashjad' />;
+      }
     } catch (error) {
       console.log(error);
     }

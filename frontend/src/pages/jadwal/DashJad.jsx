@@ -26,14 +26,12 @@ export default function DashJad() {
   }, [dataJadwal]);
 
   const deleteHandler = async (event) => {
-    let idData = event.target.value;
-    console.log(idData);
     console.log(token);
     console.log(user.scheduleId);
     try {
       const response = await axios.delete(
         `${import.meta.env.VITE_API_URL}/schedule/${user.scheduleId}`,
-        { scheduleId: idData },
+        { scheduleId: event.target.value },
         {
           headers: { Authorization: `Bearer ${token}` },
         }
