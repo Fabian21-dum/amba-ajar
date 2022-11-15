@@ -2,34 +2,27 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-function Checkbox() {
-  return (
-    <>
-      <Link to={'/dashboard/todo'}>
-        <div className='mb-3 flex h-6 w-full items-center rounded-lg border-2 border-[#1fd0ec] p-5 hover:bg-[#1fd0ec]'>
-          <div className='mr-4 flex items-center'>
-            <p>Teks Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-          </div>
-        </div>
-      </Link>
-    </>
-  );
-}
-
 export default function ToDoListDash({ todo }) {
+  console.log(todo);
   return (
     <>
       <p className='mb-3 text-2xl font-extrabold'>TO DO LIST</p>
       <div className='w-full'>
-        {todo !== null &&
-          todo.map((res) => {
+        {todo &&
+          todo.slice(0, 4).map((res) => {
             return (
               <>
-                <Checkbox todolist={res} />
+                <Link to={'/dashboard/todo'}>
+                  <div className='mb-3 flex h-6 w-full items-center rounded-lg border-2 border-[#1fd0ec] p-5 hover:bg-[#1fd0ec]'>
+                    <div className='mr-4 flex items-center'>
+                      <p>{res.title}</p>
+                    </div>
+                  </div>
+                </Link>
               </>
             );
           })}
-        {todo === null && <p>tes</p>}
+        {todo.length === 0 && <p>tes</p>}
       </div>
       <button
         type='button'

@@ -15,9 +15,9 @@ export default function DashboardPage() {
 
   useEffect(() => {
     const token = jsCookie.get('token');
+    const user = jwt(token);
     const fetchUser = async () => {
       try {
-        const user = jwt(token);
         const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/user/${user.id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -32,10 +32,13 @@ export default function DashboardPage() {
 
     const jadwal = async () => {
       try {
+        console.log(user.scheduleId);
         const response = await axios.get(`${import.meta.env.VITE_API_URL}/schedule/${user.scheduleId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
+
         setDataJadwal(response.data.schedules);
+        console.log(response);
       } catch (error) {
         console.log(error);
       }
@@ -44,6 +47,7 @@ export default function DashboardPage() {
 
     const todo = async () => {
       try {
+        console.log('todo');
         const response = await axios.get(`${import.meta.env.VITE_API_URL}/todo/${user.todoId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
