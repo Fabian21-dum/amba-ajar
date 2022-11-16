@@ -9,7 +9,7 @@ export default function SideBar() {
 
   return (
     <>
-      <div className='flex h-screen w-[10%] flex-col items-center gap-4 bg-white py-7 shadow-lg'>
+      <div className='flex  h-screen w-[10%] flex-col items-center gap-4 bg-white py-7 shadow-lg'>
         <div>
           <img src={LOGO} alt='ini stmik' />
         </div>

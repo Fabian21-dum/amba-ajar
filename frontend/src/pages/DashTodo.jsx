@@ -9,10 +9,10 @@ export default function DashTodo() {
   const { state } = useContext(GlobalContext);
   const { setParamData, dataTodo, setDataTodo } = state;
 
-  const token = Cookies.get('token');
-  const user = decode(token);
   useEffect(() => {
     const todo = async () => {
+      const token = Cookies.get('token');
+      const user = decode(token);
       try {
         const response = await axios.get(`${import.meta.env.VITE_API_URL}/todo/${user.todoId}`, {
           headers: { Authorization: `Bearer ${token}` },
@@ -27,6 +27,8 @@ export default function DashTodo() {
 
   const deleteHandler = async (event) => {
     try {
+      const token = Cookies.get('token');
+      const user = decode(token);
       const response = await axios.delete(
         `${import.meta.env.VITE_API_URL}/todo/${user.todoId}`,
         { todoId: event.target.value },
@@ -75,7 +77,13 @@ export default function DashTodo() {
                       <>
                         <tr className='bg-white-100 text-white-600 border-b text-center text-sm'>
                           <td className='border-r p-2'>
-                            <input type='checkbox' name='check' checked={true} />
+                            <input
+                              type='checkbox'
+                              name='check'
+                              onClick={() => {
+                                alert('jalan');
+                              }}
+                            />
                           </td>
                           <td className='border-r p-2'>{index + 1}</td>
                           <td className='border-r p-2'>{res.title}</td>

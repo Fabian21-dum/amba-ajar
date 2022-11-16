@@ -7,6 +7,7 @@ import { Footer } from '../components';
 import { GlobalContext } from '../contexts/GlobalContext';
 import useSound from 'use-sound';
 import { mySound } from '../assets/';
+import Cookies from 'js-cookie';
 
 export default function DashboardLayout() {
   const { state, funct } = useContext(GlobalContext);
@@ -92,6 +93,7 @@ export default function DashboardLayout() {
     }
     localStorage.setItem('timeActivity', JSON.stringify(timeActivity));
     localStorage.setItem('dataActivity', JSON.stringify(dataHari));
+    Cookies.set('dataActivity', JSON.stringify(dataHari), { expires: 7 });
   });
 
   return (
@@ -104,8 +106,7 @@ export default function DashboardLayout() {
         <SideBar />
         <Outlet />
       </div>
-      <Footer/>
+      <Footer />
     </RootLayout>
-
   );
 }

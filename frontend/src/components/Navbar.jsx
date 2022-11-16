@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import { LOGO } from '../assets';
 
 // eslint-disable-next-line no-unused-vars, react/prop-types
 export default function Navbar() {
@@ -9,7 +10,7 @@ export default function Navbar() {
     <nav className='container absolute right-0 top-0 left-0 flex justify-between px-4 py-8'>
       <div>
         <Link className='text-2xl font-bold' to='/'>
-          LOGOS
+          <img src={LOGO} alt='logo' />
         </Link>
       </div>
 
