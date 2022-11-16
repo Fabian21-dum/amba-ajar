@@ -59,7 +59,7 @@ async function updateSchedule(req, res) {
  */
 async function deleteSchedule(req, res) {
   const { id } = req.params;
-  const { scheduleId } = req.params;
+  const { scheduleId } = req.body;
   try {
     await scheduleServices.deleteSchedule(id, scheduleId);
     return res.send({ message: 'successfully deleted schedule', status: 200 });

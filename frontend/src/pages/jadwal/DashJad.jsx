@@ -30,13 +30,10 @@ export default function DashJad() {
       console.log(token);
       console.log(user.scheduleId);
       console.log(event.target.value);
-      const response = await axios.delete(
-        `${import.meta.env.VITE_API_URL}/schedule/${user.scheduleId}`,
-        { scheduleId: event.target.value },
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
+      const response = await axios.delete(`${import.meta.env.VITE_API_URL}/schedule/${user.scheduleId}`, {
+        data: { scheduleId: event.target.value },
+        headers: { Authorization: `Bearer ${token}` },
+      });
       console.log(response);
     } catch (error) {
       console.log(error);

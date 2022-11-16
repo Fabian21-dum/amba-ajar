@@ -8,6 +8,7 @@ const scheduleRoutes = require('./scheduleRoutes');
 
 const rootRoutes = Router();
 
+rootRoutes.get('/', (_, res) => res.send({ message: 'OK' }));
 rootRoutes.use('/auth', authRoutes);
 rootRoutes.use('/user', authMiddleware, userRoutes);
 rootRoutes.use('/todo', authMiddleware, todoRoutes);

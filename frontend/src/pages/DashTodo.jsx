@@ -9,10 +9,11 @@ export default function DashTodo() {
   const { state } = useContext(GlobalContext);
   const { setParamData, dataTodo, setDataTodo } = state;
 
+  const token = Cookies.get('token');
+  const user = decode(token);
+
   useEffect(() => {
     const todo = async () => {
-      const token = Cookies.get('token');
-      const user = decode(token);
       try {
         const response = await axios.get(`${import.meta.env.VITE_API_URL}/todo/${user.todoId}`, {
           headers: { Authorization: `Bearer ${token}` },
@@ -37,6 +38,21 @@ export default function DashTodo() {
         }
       );
       console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const onCompletedHandler = async (e) => {
+    try {
+      const response = await axios.put(
+        `${import.meta.env.VITE_API_URL}/todo/${user.todoId}`,
+        { todoId: e.target.value, changes: { isCompleted: e.target.checked } },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      console.log(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -75,15 +91,9 @@ export default function DashTodo() {
                   dataTodo.map((res, index) => {
                     return (
                       <>
-                        <tr className='bg-white-100 text-white-600 border-b text-center text-sm'>
+                        <tr key={res.id} className='bg-white-100 text-white-600 border-b text-center text-sm'>
                           <td className='border-r p-2'>
-                            <input
-                              type='checkbox'
-                              name='check'
-                              onClick={() => {
-                                alert('jalan');
-                              }}
-                            />
+                            <input type='checkbox' name='check' value={res.todoId} onClick={onCompletedHandler} />
                           </td>
                           <td className='border-r p-2'>{index + 1}</td>
                           <td className='border-r p-2'>{res.title}</td>
